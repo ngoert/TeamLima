@@ -1,11 +1,13 @@
 # TeamLima
 
 Team Lima:
-Micah Trent
-Faisal Jaffri
-Cole Hutson
-Prajwal Rereddy
-Nicholas Goertemiller
+
+Team Lead: Micah Trent
+Asset Manager: Faisal Jaffri
+Software Developer: Cole Hutson
+Documentarian: Prajwal Rereddy
+Version Control: Nicholas Goertemiller
+
 
 App Idea
 
