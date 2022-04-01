@@ -6,24 +6,35 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class RegisterationViewController: UIViewController {
 
+    @IBOutlet weak var userEmail: UITextField!
+    
+    @IBOutlet weak var userPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func registerUserButton(_ sender: Any) {
+        Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
+            if error != nil{
+                print(error!)
+            }
+            else{
+                print("User Registration Successful")
+                print(user)
+                
+            }
+          
+        })
+        
+        
     }
-    */
+    
+  
 
 }

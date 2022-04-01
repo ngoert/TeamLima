@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72039A26E552D86FD02238B2 /* Pods_sharest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F55CD501C6431DABEDE7AA /* Pods_sharest.framework */; };
 		D6398AB227F77D0500AF275C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AB127F77D0500AF275C /* AppDelegate.swift */; };
 		D6398AB427F77D0500AF275C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AB327F77D0500AF275C /* SceneDelegate.swift */; };
 		D6398AB627F77D0600AF275C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AB527F77D0500AF275C /* ViewController.swift */; };
@@ -14,9 +15,12 @@
 		D6398ABE27F77D0700AF275C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6398ABD27F77D0700AF275C /* Assets.xcassets */; };
 		D6398AC127F77D0700AF275C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6398ABF27F77D0700AF275C /* LaunchScreen.storyboard */; };
 		D6398ACC27F7849100AF275C /* RegisterationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398ACB27F7849100AF275C /* RegisterationViewController.swift */; };
+		D6398ACF27F78A6500AF275C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6398ACE27F78A6500AF275C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		356FC36E734495C681A5A1CF /* Pods-sharest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharest.release.xcconfig"; path = "Target Support Files/Pods-sharest/Pods-sharest.release.xcconfig"; sourceTree = "<group>"; };
+		B8F55CD501C6431DABEDE7AA /* Pods_sharest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sharest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6398AAE27F77D0500AF275C /* sharest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sharest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6398AB127F77D0500AF275C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6398AB327F77D0500AF275C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		D6398AC027F77D0700AF275C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6398AC227F77D0700AF275C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6398ACB27F7849100AF275C /* RegisterationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationViewController.swift; sourceTree = "<group>"; };
+		D6398ACE27F78A6500AF275C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D68EC74E39D9A803E934074F /* Pods-sharest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharest.debug.xcconfig"; path = "Target Support Files/Pods-sharest/Pods-sharest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72039A26E552D86FD02238B2 /* Pods_sharest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		717BC9557428C0B414EF54F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8F55CD501C6431DABEDE7AA /* Pods_sharest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8F98951680D093860CD2881 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D68EC74E39D9A803E934074F /* Pods-sharest.debug.xcconfig */,
+				356FC36E734495C681A5A1CF /* Pods-sharest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D6398AA527F77D0500AF275C = {
 			isa = PBXGroup;
 			children = (
 				D6398AB027F77D0500AF275C /* sharest */,
 				D6398AAF27F77D0500AF275C /* Products */,
+				A8F98951680D093860CD2881 /* Pods */,
+				717BC9557428C0B414EF54F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,10 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				D6398AC827F77D5900AF275C /* Model */,
+				D6398ACD27F78A2F00AF275C /* Supporting Files */,
 				D6398AC927F77D6400AF275C /* View */,
 				D6398ACA27F77D7100AF275C /* Controller */,
-				D6398ABD27F77D0700AF275C /* Assets.xcassets */,
 				D6398AC227F77D0700AF275C /* Info.plist */,
+				D6398ABD27F77D0700AF275C /* Assets.xcassets */,
 			);
 			path = sharest;
 			sourceTree = "<group>";
@@ -94,6 +121,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		D6398ACD27F78A2F00AF275C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6398ACE27F78A6500AF275C /* GoogleService-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6398AC527F77D0700AF275C /* Build configuration list for PBXNativeTarget "sharest" */;
 			buildPhases = (
+				1B7AC93DD9E24D5E2A6DA2DF /* [CP] Check Pods Manifest.lock */,
 				D6398AAA27F77D0500AF275C /* Sources */,
 				D6398AAB27F77D0500AF275C /* Frameworks */,
 				D6398AAC27F77D0500AF275C /* Resources */,
+				3DB54532D9DB4710B7A1AA46 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,11 +191,54 @@
 			files = (
 				D6398AC127F77D0700AF275C /* LaunchScreen.storyboard in Resources */,
 				D6398ABE27F77D0700AF275C /* Assets.xcassets in Resources */,
+				D6398ACF27F78A6500AF275C /* GoogleService-Info.plist in Resources */,
 				D6398AB927F77D0600AF275C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B7AC93DD9E24D5E2A6DA2DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sharest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DB54532D9DB4710B7A1AA46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sharest/Pods-sharest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sharest/Pods-sharest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sharest/Pods-sharest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6398AAA27F77D0500AF275C /* Sources */ = {
@@ -312,6 +392,7 @@
 		};
 		D6398AC627F77D0700AF275C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D68EC74E39D9A803E934074F /* Pods-sharest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.assignment3.osu.sharest;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.teamLima.osu.sharest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -340,6 +421,7 @@
 		};
 		D6398AC727F77D0700AF275C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 356FC36E734495C681A5A1CF /* Pods-sharest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.assignment3.osu.sharest;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.teamLima.osu.sharest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
