@@ -16,9 +16,10 @@ class RegisterationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Do any additional setup after loading the view.
     }
-    
+    //Function to register user to database
     @IBAction func registerUserButton(_ sender: Any) {
         Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
             if error != nil{

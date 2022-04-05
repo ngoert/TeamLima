@@ -18,12 +18,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+
     }
+    //Function to sign in user to database
     @IBAction func loginButton(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginUserText.text!, password: passwordUserText.text!, completion: {(user, error) in
             if error != nil{
-                print("Error---------------")
+                print("Error while Login---------------")
                 print(error?.localizedDescription)
                 var errorMessage = error?.localizedDescription
                 self.showErrorAlert(message: errorMessage!)
@@ -31,6 +34,15 @@ class ViewController: UIViewController {
             }
             else{
                 print("User Logged Successful----")
+                guard let userID = Auth.auth().currentUser?.uid else
+                {
+                    return
+                    
+                }
+                print("User ID---- ",userID)
+                //TODO
+                // Create a user object and store user_id, first name, last name, emailadress
+
                 self.performSegue(withIdentifier: "goToHomeScreen", sender: self)
                 
             }
@@ -38,7 +50,7 @@ class ViewController: UIViewController {
         })
         
     }
-    
+    //Go to register screen
     @IBAction func registerUser(_ sender: Any) {
         performSegue(withIdentifier: "goToRegister", sender: self)
         
@@ -53,7 +65,6 @@ class ViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     
     
