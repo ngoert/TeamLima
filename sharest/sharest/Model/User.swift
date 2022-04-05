@@ -6,6 +6,14 @@
 //
 
 import Foundation
+import UIKit
 class User{
     
+    var uuid:String = ""
+    var firstName:String = ""
+    var lastname:String = ""
+    var emailAddress:String = ""
+    var imageURL:String = ""
+    
+   
 }

@@ -338,6 +338,10 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - Alamofire (5.5.0)
+  - AWSCore (2.27.5)
+  - AWSS3 (2.27.5):
+    - AWSCore (= 2.27.5)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
@@ -487,17 +491,32 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PromiseKit (6.17.0):
+    - PromiseKit/CorePromise (= 6.17.0)
+    - PromiseKit/Foundation (= 6.17.0)
+    - PromiseKit/UIKit (= 6.17.0)
+  - PromiseKit/CorePromise (6.17.0)
+  - PromiseKit/Foundation (6.17.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.17.0):
+    - PromiseKit/CorePromise
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - AWSS3
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Firestore
+  - PromiseKit
 
 SPEC REPOS:
   trunk:
     - abseil
+    - Alamofire
+    - AWSCore
+    - AWSS3
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -515,10 +534,14 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PromiseKit
     - PromisesObjC
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  AWSCore: 1420cdfb89730620224a437625f6cca30f49e168
+  AWSS3: 484d48041ae04034f114e565304f7ad610c8ca13
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   FirebaseAnalytics: 2fc3876e2eb347673ad2f35e249ae7b15d6c88f5
@@ -536,8 +559,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 16b4ef6685f4019466199148fb5a8dd7dbf1ba4c
+PODFILE CHECKSUM: faf74f07646aeb950f308b1f07298b0f87f0b3bc
 
 COCOAPODS: 1.11.3
