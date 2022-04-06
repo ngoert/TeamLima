@@ -57,13 +57,16 @@ class MenuListController: UITableViewController{
         do { try
             Auth.auth().signOut()
             print("User logged out")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let loginVC = storyboard.instantiateViewController(identifier: "loginViewController")
-                    
-            loginVC.modalPresentationStyle = .fullScreen
-            loginVC.modalTransitionStyle = .crossDissolve
-                    
-            present(loginVC, animated: true, completion: nil)
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let profileViewController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! ViewController
+            show(profileViewController, sender: self)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let loginVC = storyboard.instantiateViewController(identifier: "loginViewController")
+//
+//            loginVC.modalPresentationStyle = .fullScreen
+//            loginVC.modalTransitionStyle = .crossDissolve
+//
+//            present(loginVC, animated: true, completion: nil)
         }
         catch { print("already logged out") }
     }
