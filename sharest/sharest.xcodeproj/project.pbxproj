@@ -23,6 +23,7 @@
 		D6968EB127FE30790079922A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB027FE30790079922A /* ProfileViewController.swift */; };
 		D6968EB327FE308C0079922A /* InsightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB227FE308C0079922A /* InsightViewController.swift */; };
 		D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB427FE309D0079922A /* QRCodeViewController.swift */; };
+		D6968EB927FE49470079922A /* MyItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB827FE49470079922A /* MyItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D6968EB027FE30790079922A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D6968EB227FE308C0079922A /* InsightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewController.swift; sourceTree = "<group>"; };
 		D6968EB427FE309D0079922A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		D6968EB827FE49470079922A /* MyItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				D6968EB027FE30790079922A /* ProfileViewController.swift */,
 				D6968EB227FE308C0079922A /* InsightViewController.swift */,
 				D6968EB427FE309D0079922A /* QRCodeViewController.swift */,
+				D6968EB827FE49470079922A /* MyItemsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */,
 				D6398AB227F77D0500AF275C /* AppDelegate.swift in Sources */,
 				D6398AFB27FCC20400AF275C /* NetworkManager.swift in Sources */,
+				D6968EB927FE49470079922A /* MyItemsViewController.swift in Sources */,
 				D6398AD527F7C95800AF275C /* User.swift in Sources */,
 				D6968EB327FE308C0079922A /* InsightViewController.swift in Sources */,
 				D6398AFF27FCCD7800AF275C /* AddItemViewController.swift in Sources */,

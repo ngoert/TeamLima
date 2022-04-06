@@ -44,11 +44,11 @@ class HomeViewController: UIViewController {
 }
 
 class MenuListController: UITableViewController{
-    var items = ["Profile","Add Items", "Insights", "QR Code", "Logout"]
+    var items = ["Profile","Add Items", "Insights", "QR Code","My Items", "Logout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.backgroundColor = .orange
+        tableView.backgroundColor = .orange
         tableView.register(UITableViewCell.self, forCellReuseIdentifier:  "cell" )
     }
     func logoutUser() {
@@ -60,13 +60,6 @@ class MenuListController: UITableViewController{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let profileViewController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! ViewController
             show(profileViewController, sender: self)
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let loginVC = storyboard.instantiateViewController(identifier: "loginViewController")
-//
-//            loginVC.modalPresentationStyle = .fullScreen
-//            loginVC.modalTransitionStyle = .crossDissolve
-//
-//            present(loginVC, animated: true, completion: nil)
         }
         catch { print("already logged out") }
     }
@@ -80,7 +73,7 @@ class MenuListController: UITableViewController{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
-        //cell.backgroundColor = .orange
+        cell.backgroundColor = .orange
         return cell
     }
     
@@ -109,6 +102,12 @@ class MenuListController: UITableViewController{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let qrCodeViewController = storyBoard.instantiateViewController(withIdentifier: "qRCodeViewController") as! QRCodeViewController
+            show(qrCodeViewController, sender: self)
+        }
+        if items[indexPath.row] == "My Items"{
+          
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let qrCodeViewController = storyBoard.instantiateViewController(withIdentifier: "myItemsViewController") as! MyItemsViewController
             show(qrCodeViewController, sender: self)
         }
         
