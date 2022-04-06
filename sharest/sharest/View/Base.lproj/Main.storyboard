@@ -171,26 +171,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krL-ep-ycw">
-                                <rect key="frame" x="179.5" y="436" width="55.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvM-5K-b5w">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Profile" id="lOt-ee-qbd"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="06y-Ec-Jq8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="krL-ep-ycw" firstAttribute="centerX" secondItem="sf9-hm-8TQ" secondAttribute="centerX" id="C0p-9w-zbD"/>
-                            <constraint firstItem="krL-ep-ycw" firstAttribute="centerY" secondItem="sf9-hm-8TQ" secondAttribute="centerY" id="J1L-Sy-2YE"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg9-2R-R6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3898.5507246376815" y="-585.26785714285711"/>
         </scene>
-        <!--Add Items-->
+        <!--My Items View Controller-->
+        <scene sceneID="1gk-L4-5z6">
+            <objects>
+                <viewController storyboardIdentifier="myItemsViewController" id="2Xy-h1-464" customClass="MyItemsViewController" customModule="sharest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IhR-my-owx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KV6-hR-hdh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="My Items" id="bYN-Yw-jTa"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wzL-hP-6Kp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8y-mC-WAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4822" y="-576"/>
+        </scene>
+        <!--Add Item View Controller-->
         <scene sceneID="2Zz-Wh-2Fb">
             <objects>
                 <viewController storyboardIdentifier="addItemViewController" id="qcj-Na-zIo" customClass="AddItemViewController" customModule="sharest" customModuleProvider="target" sceneMemberID="viewController">
@@ -232,11 +253,17 @@
                                     <action selector="uploadButtonTap:" destination="qcj-Na-zIo" eventType="touchUpInside" id="Yrh-qR-0vb"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZ6-gj-7mQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Add Items" id="X7K-2d-4EM"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y4p-gv-hGR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Items" id="aZe-wF-Pfb"/>
                     <connections>
                         <outlet property="imageUploadProgressView" destination="Yxh-NC-Toj" id="7j8-yZ-VMu"/>
                         <outlet property="myImageView" destination="It0-Id-PMy" id="GJV-1v-hRr"/>
@@ -256,26 +283,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aS-N4-TsG">
-                                <rect key="frame" x="173" y="436" width="68.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7rW-2Q-wl8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Insights" id="td9-SP-Jv7"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HhO-Iu-Oyw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="1aS-N4-TsG" firstAttribute="centerY" secondItem="GdC-hQ-XuO" secondAttribute="centerY" id="OWS-TT-FgE"/>
-                            <constraint firstItem="1aS-N4-TsG" firstAttribute="centerX" secondItem="GdC-hQ-XuO" secondAttribute="centerX" id="bUW-7e-ZKB"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3I-ew-SGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5908.6956521739139" y="92.410714285714278"/>
         </scene>
-        <!--Code View Controller-->
+        <!--QR Code-->
         <scene sceneID="Ucj-qB-ZAO">
             <objects>
                 <viewController storyboardIdentifier="qRCodeViewController" id="ZPc-d1-8S1" customClass="QRCodeViewController" customModule="sharest" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,20 +307,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCP-Ni-ap7">
-                                <rect key="frame" x="167.5" y="436" width="79.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-dm-p66">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="QR Code" id="piU-PJ-gDI"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="saU-B5-N8q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="FCP-Ni-ap7" firstAttribute="centerX" secondItem="t46-3x-RZ8" secondAttribute="centerX" id="QEd-jx-LFc"/>
-                            <constraint firstItem="FCP-Ni-ap7" firstAttribute="centerY" secondItem="t46-3x-RZ8" secondAttribute="centerY" id="xhy-lm-VcN"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="QR Code" id="eln-2m-lX7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Np-ex-MEU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
