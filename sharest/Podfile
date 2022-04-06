@@ -13,6 +13,7 @@ target 'sharest' do
   pod 'Alamofire'
   pod 'PromiseKit'
   pod 'AWSS3'
+  pod 'SideMenu'
 
 end
 post_install do |installer|

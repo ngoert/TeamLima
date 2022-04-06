@@ -20,6 +20,9 @@
 		D6398AD727F8117300AF275C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AD627F8117300AF275C /* HomeViewController.swift */; };
 		D6398AFB27FCC20400AF275C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AFA27FCC20400AF275C /* NetworkManager.swift */; };
 		D6398AFF27FCCD7800AF275C /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AFE27FCCD7800AF275C /* AddItemViewController.swift */; };
+		D6968EB127FE30790079922A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB027FE30790079922A /* ProfileViewController.swift */; };
+		D6968EB327FE308C0079922A /* InsightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB227FE308C0079922A /* InsightViewController.swift */; };
+		D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB427FE309D0079922A /* QRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		D6398AFA27FCC20400AF275C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D6398AFE27FCCD7800AF275C /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		D68EC74E39D9A803E934074F /* Pods-sharest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharest.debug.xcconfig"; path = "Target Support Files/Pods-sharest/Pods-sharest.debug.xcconfig"; sourceTree = "<group>"; };
+		D6968EB027FE30790079922A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D6968EB227FE308C0079922A /* InsightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewController.swift; sourceTree = "<group>"; };
+		D6968EB427FE309D0079922A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,9 @@
 				D6398ACB27F7849100AF275C /* RegisterationViewController.swift */,
 				D6398AD627F8117300AF275C /* HomeViewController.swift */,
 				D6398AFE27FCCD7800AF275C /* AddItemViewController.swift */,
+				D6968EB027FE30790079922A /* ProfileViewController.swift */,
+				D6968EB227FE308C0079922A /* InsightViewController.swift */,
+				D6968EB427FE309D0079922A /* QRCodeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,10 +268,13 @@
 			files = (
 				D6398AB627F77D0600AF275C /* LoginViewController.swift in Sources */,
 				D6398ACC27F7849100AF275C /* RegisterationViewController.swift in Sources */,
+				D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */,
 				D6398AB227F77D0500AF275C /* AppDelegate.swift in Sources */,
 				D6398AFB27FCC20400AF275C /* NetworkManager.swift in Sources */,
 				D6398AD527F7C95800AF275C /* User.swift in Sources */,
+				D6968EB327FE308C0079922A /* InsightViewController.swift in Sources */,
 				D6398AFF27FCCD7800AF275C /* AddItemViewController.swift in Sources */,
+				D6968EB127FE30790079922A /* ProfileViewController.swift in Sources */,
 				D6398AB427F77D0500AF275C /* SceneDelegate.swift in Sources */,
 				D6398AD727F8117300AF275C /* HomeViewController.swift in Sources */,
 			);

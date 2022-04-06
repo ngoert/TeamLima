@@ -501,6 +501,7 @@ PODS:
   - PromiseKit/UIKit (6.17.0):
     - PromiseKit/CorePromise
   - PromisesObjC (2.0.0)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -510,6 +511,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - PromiseKit
+  - SideMenu
 
 SPEC REPOS:
   trunk:
@@ -536,6 +538,7 @@ SPEC REPOS:
     - nanopb
     - PromiseKit
     - PromisesObjC
+    - SideMenu
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -561,7 +564,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: faf74f07646aeb950f308b1f07298b0f87f0b3bc
+PODFILE CHECKSUM: 004f1cd74ffc33c7c2aded299fcb659335559605
 
 COCOAPODS: 1.11.3
