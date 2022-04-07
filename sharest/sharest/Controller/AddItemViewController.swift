@@ -87,7 +87,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             let uniqueName = ProcessInfo.processInfo.globallyUniqueString+".jpg"
             let transferUtility = AWSS3TransferUtility.default()
-            let imageData = image.jpegData(compressionQuality: 1)
+            let imageData = image.jpegData(compressionQuality: 0.1)
             let bucketName = "teamlimashareit"
             let expression = AWSS3TransferUtilityUploadExpression()
             expression.progressBlock = progressBlock

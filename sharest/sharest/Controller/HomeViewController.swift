@@ -12,19 +12,59 @@ import SideMenu
 class HomeViewController: UIViewController {
     
     var menu: SideMenuNavigationController?
+    var imageView:UIImageView = UIImageView()
+    var imageList:Array = ["https://teamlimashareit.s3.amazonaws.com/cup.png","https://teamlimashareit.s3.amazonaws.com/57617657c1e6d6e543bbcc9fd928f475ed61135f_toughbook_55.jpg","https://teamlimashareit.s3.amazonaws.com/88068351-03A9-4942-8B1C-A592337A57E9-56809-000002BD65745DDA.jpg",
+        "https://teamlimashareit.s3.amazonaws.com/s-l300.jpeg"]
+    var i = 1
 
     
+    @IBOutlet weak var mySpinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        mySpinner.hidesWhenStopped = true
+        imageView = UIImageView(frame: CGRect(x: 60, y: 177, width: 294, height: 384))
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.layer.borderWidth = 2.0
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+        
+        
         menu = SideMenuNavigationController(rootViewController: MenuListController())
         menu?.leftSide = true
         //navigationItem.hidesBackButton = true
+        //navigationItem.titleView?.backgroundColor = .black
         
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         
+        downloadImage(url:imageList[0])
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func downloadImage(url:String){
+        // Create URL
+     
+          let url = URL(string: url)!
+        print("Download started")
+        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in
+               if let data = data {
+                   DispatchQueue.main.async {
+                       // Create Image and Update Image View
+                       print("Downloading image from url.......")
+                       self?.mySpinner.stopAnimating()
+                       self?.imageView.image = UIImage(data: data)
+                   }
+               }
+           }
+
+           // Start Data Task
+           dataTask.resume()
+            
+        
     }
     /*
     // MARK: - Navigation
@@ -35,6 +75,19 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func didPressNext(_ sender: Any) {
+            if i <= self.imageList.count{
+                mySpinner.startAnimating()
+                self.downloadImage(url: imageList[i])
+                i += 1
+                if i == imageList.count{
+                    i = 0
+                }
+                
+            }
+      
+    }
+    
     @IBAction func didTapMenuButton(){
         present(menu!,animated: true)
         
@@ -64,11 +117,22 @@ class MenuListController: UITableViewController{
         catch { print("already logged out") }
     }
     
+  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
 
     }
   
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var headerView = UIView(frame: CGRect(x: 50, y: 50, width:view.bounds.size.width/2, height: view.bounds.size.width/2))
+        var userImageView = UIImageView(frame: CGRect(x: 50, y: 50, width: view.bounds.size.width/2, height: view.bounds.size.width/2))
+        userImageView.image = UIImage(named: "osu-logo-vector")
+        userImageView.layer.cornerRadius = userImageView.bounds.size.width
+        headerView .addSubview(userImageView )
+        return headerView
+    }
+ 
+     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         // Initialize the Amazon Cognito credentials provider
-        let poolId = "dont-push-in-git-ping-fj"
+        let poolId = "dont-push-in-git-ask-from-fj"
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
            identityPoolId:poolId)
         let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
