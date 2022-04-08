@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mySpinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
         mySpinner.hidesWhenStopped = true
         imageView = UIImageView(frame: CGRect(x: 60, y: 177, width: 294, height: 384))
         imageView.contentMode = .scaleAspectFit
@@ -101,7 +102,8 @@ class MenuListController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .orange
+        tableView.backgroundColor = UIColor(cgColor: CGColor(red: 200/255, green: 80/255, blue: 30/255, alpha: 1))
+       
         tableView.register(UITableViewCell.self, forCellReuseIdentifier:  "cell" )
     }
     func logoutUser() {
@@ -124,12 +126,12 @@ class MenuListController: UITableViewController{
     }
   
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var headerView = UIView(frame: CGRect(x: 50, y: 50, width:view.bounds.size.width/2, height: view.bounds.size.width/2))
+        var footer = UIView(frame: CGRect(x: 50, y: 50, width:view.bounds.size.width/2, height: view.bounds.size.width/2))
         var userImageView = UIImageView(frame: CGRect(x: 50, y: 50, width: view.bounds.size.width/2, height: view.bounds.size.width/2))
-        userImageView.image = UIImage(named: "osu-logo-vector")
+        userImageView.image = UIImage(named: "logo1")
         userImageView.layer.cornerRadius = userImageView.bounds.size.width
-        headerView .addSubview(userImageView )
-        return headerView
+        footer.addSubview(userImageView )
+        return footer
     }
  
      
@@ -137,7 +139,7 @@ class MenuListController: UITableViewController{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
-        cell.backgroundColor = .orange
+        //cell.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
         return cell
     }
     

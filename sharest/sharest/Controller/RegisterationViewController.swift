@@ -15,7 +15,7 @@ class RegisterationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
 
         // Do any additional setup after loading the view.
     }
