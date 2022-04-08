@@ -27,7 +27,12 @@ class RegisterationViewController: UIViewController {
             }
             else{
                 print("User Registration Successful")
-                print(user)
+                guard let userID = Auth.auth().currentUser?.uid else
+                {
+                    return
+                    
+                }
+                print("User ID---- ",userID)
                 
             }
           
