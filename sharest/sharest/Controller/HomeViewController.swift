@@ -126,9 +126,9 @@ class MenuListController: UITableViewController{
     }
   
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footer = UIView(frame: CGRect(x: 50, y: 50, width:view.bounds.size.width/2, height: view.bounds.size.width/2))
-        var userImageView = UIImageView(frame: CGRect(x: 50, y: 50, width: view.bounds.size.width/2, height: view.bounds.size.width/2))
-        userImageView.image = UIImage(named: "logo1")
+        var footer = UIView(frame: CGRect(x: 50, y: 50, width:600, height: 600))
+        var userImageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 200, height: 200))
+        userImageView.image = UIImage(named: "logo")
         userImageView.layer.cornerRadius = userImageView.bounds.size.width
         footer.addSubview(userImageView )
         return footer
