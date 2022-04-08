@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     var menu: SideMenuNavigationController?
     var imageView:UIImageView = UIImageView()
+    var userInfo : User = User()
     var imageList:Array = ["https://teamlimashareit.s3.amazonaws.com/cup.png","https://teamlimashareit.s3.amazonaws.com/57617657c1e6d6e543bbcc9fd928f475ed61135f_toughbook_55.jpg","https://teamlimashareit.s3.amazonaws.com/88068351-03A9-4942-8B1C-A592337A57E9-56809-000002BD65745DDA.jpg",
         "https://teamlimashareit.s3.amazonaws.com/s-l300.jpeg"]
     var i = 1
@@ -29,9 +30,10 @@ class HomeViewController: UIViewController {
         imageView.clipsToBounds = true
         view.addSubview(imageView)
         
-        
-        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        let menuController = MenuListController()
+        menu = SideMenuNavigationController(rootViewController: menuController)
         menu?.leftSide = true
+        menuController.userInfo = userInfo
         //navigationItem.hidesBackButton = true
         //navigationItem.titleView?.backgroundColor = .black
         
@@ -98,6 +100,7 @@ class HomeViewController: UIViewController {
 
 class MenuListController: UITableViewController{
     var items = ["Profile","Add Items", "Insights", "QR Code","My Items", "Logout"]
+    var userInfo = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,6 +151,7 @@ class MenuListController: UITableViewController{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+            profileViewController.userInfo = userInfo
             show(profileViewController, sender: self)
         }
         if items[indexPath.row] == "Add Items"{

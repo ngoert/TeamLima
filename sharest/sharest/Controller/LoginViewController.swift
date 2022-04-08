@@ -80,10 +80,8 @@ class ViewController: UIViewController {
                 return
             }
             do {
-                print(String(data: data, encoding: .utf8)!)
                 self.user = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
-                    print("Username: \(self.user.firstName)")
                     self.onDataLoaded()
                 }
                 
@@ -99,6 +97,12 @@ class ViewController: UIViewController {
     func onDataLoaded()
     {
         self.performSegue(withIdentifier: "goToHomeScreen", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let homeView = segue.destination as? HomeViewController {
+            homeView.userInfo = user
+        }
     }
     
 }
