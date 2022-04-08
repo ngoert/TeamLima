@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        sleep(1)
         FirebaseApp.configure()
         // Initialize the Amazon Cognito credentials provider
         let poolId = "dont-push-in-git-ask-from-fj"
