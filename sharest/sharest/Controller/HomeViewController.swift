@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mySpinner: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
         mySpinner.hidesWhenStopped = true
         imageView = UIImageView(frame: CGRect(x: 60, y: 177, width: 294, height: 384))
         imageView.contentMode = .scaleAspectFit

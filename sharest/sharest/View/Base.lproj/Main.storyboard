@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a3J-Lo-co3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a3J-Lo-co3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,7 +49,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P2Q-Fa-QgX" secondAttribute="trailing" constant="87" id="138-io-DDb"/>
                             <constraint firstItem="KMA-Hq-FXM" firstAttribute="top" secondItem="VFt-Kw-JtK" secondAttribute="bottom" constant="5" id="3vD-iB-EjX"/>
@@ -89,18 +89,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-xX-mBe">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-xX-mBe">
                                 <rect key="frame" x="20" y="301" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-tE-hFa">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-tE-hFa">
                                 <rect key="frame" x="20" y="343" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATC-3E-sfm">
+                                <rect key="frame" x="20" y="385" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-TP-hbO">
-                                <rect key="frame" x="120" y="385" width="174" height="69"/>
+                                <rect key="frame" x="120" y="469" width="174" height="69"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="button_register" title=""/>
                                 <connections>
@@ -110,29 +115,42 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="osu-logo-vector" translatesAutoresizingMaskIntoConstraints="NO" id="vc9-7S-On6">
                                 <rect key="frame" x="87" y="152" width="240" height="129"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Vf-lT-fPv">
+                                <rect key="frame" x="20" y="427" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E9j-Mz-kt0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="E9j-Mz-kt0" firstAttribute="trailing" secondItem="vc9-7S-On6" secondAttribute="trailing" constant="87" id="3DX-V5-rEC"/>
+                            <constraint firstItem="ATC-3E-sfm" firstAttribute="trailing" secondItem="pSO-tE-hFa" secondAttribute="trailing" id="3VY-pJ-Jez"/>
                             <constraint firstItem="RKW-xX-mBe" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="20" id="8KG-jb-6xx"/>
-                            <constraint firstItem="Zgs-TP-hbO" firstAttribute="top" secondItem="pSO-tE-hFa" secondAttribute="bottom" constant="8" id="9Ch-qk-m3a"/>
+                            <constraint firstItem="Zgs-TP-hbO" firstAttribute="top" secondItem="pSO-tE-hFa" secondAttribute="bottom" constant="92" id="9Ch-qk-m3a"/>
                             <constraint firstItem="vc9-7S-On6" firstAttribute="top" secondItem="E9j-Mz-kt0" secondAttribute="top" constant="64" id="AaI-7e-3AK"/>
                             <constraint firstItem="RKW-xX-mBe" firstAttribute="top" secondItem="E9j-Mz-kt0" secondAttribute="top" constant="213" id="BnM-Gu-THG"/>
+                            <constraint firstItem="ATC-3E-sfm" firstAttribute="top" secondItem="pSO-tE-hFa" secondAttribute="bottom" constant="8" id="Cdi-8n-3nw"/>
+                            <constraint firstItem="0Vf-lT-fPv" firstAttribute="top" secondItem="ATC-3E-sfm" secondAttribute="bottom" constant="8" id="Fa2-FV-khg"/>
+                            <constraint firstItem="0Vf-lT-fPv" firstAttribute="leading" secondItem="ATC-3E-sfm" secondAttribute="leading" id="GUG-4W-DAR"/>
                             <constraint firstItem="pSO-tE-hFa" firstAttribute="top" secondItem="RKW-xX-mBe" secondAttribute="bottom" constant="8" id="ISM-e5-WVe"/>
-                            <constraint firstItem="Zgs-TP-hbO" firstAttribute="top" secondItem="pSO-tE-hFa" secondAttribute="bottom" constant="8" id="LGg-D9-kSv"/>
+                            <constraint firstItem="Zgs-TP-hbO" firstAttribute="top" secondItem="pSO-tE-hFa" secondAttribute="bottom" constant="92" id="LGg-D9-kSv"/>
                             <constraint firstItem="E9j-Mz-kt0" firstAttribute="trailing" secondItem="RKW-xX-mBe" secondAttribute="trailing" constant="20" id="N15-fm-KHG"/>
                             <constraint firstItem="pSO-tE-hFa" firstAttribute="top" secondItem="RKW-xX-mBe" secondAttribute="bottom" constant="8" id="RUP-u9-Bun"/>
                             <constraint firstItem="vc9-7S-On6" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="87" id="UIQ-e4-Ixm"/>
                             <constraint firstItem="E9j-Mz-kt0" firstAttribute="trailing" secondItem="pSO-tE-hFa" secondAttribute="trailing" constant="20" id="UVT-0w-vga"/>
                             <constraint firstItem="Zgs-TP-hbO" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="120" id="XUk-xo-E1p"/>
+                            <constraint firstItem="ATC-3E-sfm" firstAttribute="leading" secondItem="pSO-tE-hFa" secondAttribute="leading" id="d8u-se-Y8K"/>
                             <constraint firstItem="RKW-xX-mBe" firstAttribute="top" secondItem="vc9-7S-On6" secondAttribute="bottom" constant="20" id="kSG-En-SZP"/>
+                            <constraint firstItem="0Vf-lT-fPv" firstAttribute="trailing" secondItem="ATC-3E-sfm" secondAttribute="trailing" id="mSr-0d-OAd"/>
                             <constraint firstItem="pSO-tE-hFa" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="20" id="rbv-eW-7WR"/>
                             <constraint firstItem="E9j-Mz-kt0" firstAttribute="trailing" secondItem="Zgs-TP-hbO" secondAttribute="trailing" constant="120" id="wSP-oD-slp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="frV-Js-koI"/>
                     <connections>
+                        <outlet property="firstNameLabel" destination="ATC-3E-sfm" id="guS-d1-UEB"/>
+                        <outlet property="lastNameLabel" destination="0Vf-lT-fPv" id="1J1-Z5-26s"/>
                         <outlet property="userEmail" destination="RKW-xX-mBe" id="OgR-QX-xwr"/>
                         <outlet property="userPassword" destination="pSO-tE-hFa" id="dni-PF-ws1"/>
                     </connections>
@@ -173,7 +191,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dIp-ia-e72"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dIp-ia-e72" firstAttribute="bottom" secondItem="F06-9P-wrF" secondAttribute="bottom" constant="143" id="UCe-Qo-IOg"/>
                             <constraint firstItem="dIp-ia-e72" firstAttribute="trailing" secondItem="ESz-kl-hgT" secondAttribute="trailing" constant="46" id="ZwT-tU-37p"/>
@@ -196,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZp-tj-yfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4052.1739130434785" y="97.767857142857139"/>
+            <point key="canvasLocation" x="3899" y="98"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="cce-ef-9Ci">
@@ -206,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvM-5K-b5w">
+                            <navigationBar hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvM-5K-b5w">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,9 +235,32 @@
                                     <navigationItem title="Profile" id="lOt-ee-qbd"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Firstname Lastname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIP-3Y-TGb">
+                                <rect key="frame" x="81" y="229" width="252" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="06y-Ec-Jq8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerY" secondItem="sf9-hm-8TQ" secondAttribute="centerY" constant="-340.5" id="5tM-Zw-rbM"/>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerX" secondItem="sf9-hm-8TQ" secondAttribute="centerX" id="Mge-2c-RqT"/>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerY" secondItem="sf9-hm-8TQ" secondAttribute="centerY" id="NQW-4R-7Wq"/>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerX" secondItem="sf9-hm-8TQ" secondAttribute="centerX" id="gcp-cf-cCQ"/>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerY" secondItem="sf9-hm-8TQ" secondAttribute="centerY" constant="20" id="ouu-vw-5dK"/>
+                            <constraint firstItem="mIP-3Y-TGb" firstAttribute="centerX" secondItem="sf9-hm-8TQ" secondAttribute="centerX" id="yXX-h6-FA3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Mge-2c-RqT"/>
+                                <exclude reference="NQW-4R-7Wq"/>
+                                <exclude reference="gcp-cf-cCQ"/>
+                                <exclude reference="ouu-vw-5dK"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg9-2R-R6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,12 +288,12 @@
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wzL-hP-6Kp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8y-mC-WAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4822" y="-576"/>
+            <point key="canvasLocation" x="4829" y="-585"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="2Zz-Wh-2Fb">
@@ -309,7 +350,7 @@
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y4p-gv-hGR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="imageUploadProgressView" destination="Yxh-NC-Toj" id="7j8-yZ-VMu"/>
@@ -320,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKD-cI-Q0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4807.2463768115949" y="97.767857142857139"/>
+            <point key="canvasLocation" x="4810" y="98"/>
         </scene>
         <!--Insight View Controller-->
         <scene sceneID="nWl-DC-bbR">
@@ -343,7 +384,7 @@
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HhO-Iu-Oyw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3I-ew-SGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -378,7 +419,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="saU-B5-N8q"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -416,9 +457,6 @@
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="logo" width="500" height="500"/>
         <image name="osu-logo-vector" width="2500" height="2500"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

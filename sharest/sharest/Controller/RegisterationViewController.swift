@@ -10,12 +10,13 @@ import FirebaseAuth
 class RegisterationViewController: UIViewController {
 
     @IBOutlet weak var userEmail: UITextField!
-    
     @IBOutlet weak var userPassword: UITextField!
+    
+    @IBOutlet weak var firstNameLabel: UITextField!
+    @IBOutlet weak var lastNameLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
 
         // Do any additional setup after loading the view.
     }
@@ -29,13 +30,49 @@ class RegisterationViewController: UIViewController {
                 print("User Registration Successful")
                 print(user)
                 
+                var newUser = User()
+                newUser.uuid = (user?.user.uid)!
+                newUser.emailAddress = self.userEmail.text!
+                newUser.firstName = self.firstNameLabel.text!
+                newUser.lastName = self.lastNameLabel.text!
+                
+                
+                do{
+                    let jsonData = try JSONEncoder().encode(newUser)
+                    DispatchQueue.main.async {
+                        self.postUserData(data: jsonData)
+                    }
+                }
+                catch {
+                    print("\(error)")
+                }
+                
+                
+                  
             }
           
         })
+    
         
         
     }
     
+    func postUserData(data: Data) {
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/postUser.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.httpBody = data
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+        }
+        
+        task.resume()
+    }
   
 
 }
