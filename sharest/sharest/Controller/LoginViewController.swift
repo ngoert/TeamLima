@@ -16,11 +16,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var passwordUserText: UITextField!
     
+    var user : User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
-
         // Do any additional setup after loading the view.
 
     }
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
                 
             }
             else{
-                print("User Logged Successful----")
+                print("User Logged In Successful----")
                 guard let userID = Auth.auth().currentUser?.uid else
                 {
                     return
@@ -44,8 +44,9 @@ class ViewController: UIViewController {
                 print("User ID---- ",userID)
                 //TODO
                 // Create a user object and store user_id, first name, last name, emailadress
+                self.getUserByID(userID: userID)
 
-                self.performSegue(withIdentifier: "goToHomeScreen", sender: self)
+                //
                 
             }
           
@@ -68,7 +69,41 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func getUserByID(userID : String){
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/getUserByID.php/\(userID)")!
+        
+        let request = URLRequest(url: url)
+        print("\(url)")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            do {
+                self.user = try JSONDecoder().decode(User.self, from: data)
+                DispatchQueue.main.async {
+                    self.onDataLoaded()
+                }
+                
+            } catch {
+                print("\(error)")
+            }
+        }
+        
+        task.resume()
+        
+    }
     
+    func onDataLoaded()
+    {
+        self.performSegue(withIdentifier: "goToHomeScreen", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let homeView = segue.destination as? HomeViewController {
+            homeView.userInfo = user
+        }
+    }
     
 }
 

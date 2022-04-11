@@ -7,13 +7,11 @@
 
 import Foundation
 import UIKit
-class User{
-    
+class User: Decodable, Encodable{
     var uuid:String = ""
     var firstName:String = ""
-    var lastname:String = ""
+    var lastName:String = ""
     var emailAddress:String = ""
-    var imageURL:String = ""
-    
+    var profileImageURL:String = ""
    
 }

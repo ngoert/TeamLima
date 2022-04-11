@@ -8,11 +8,13 @@
 import UIKit
 
 class ProfileViewController: UIViewController,UINavigationControllerDelegate {
-
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var userInfo = User()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
-
+        nameLabel.text = "\(userInfo.firstName) \(userInfo.lastName)"
         // Do any additional setup after loading the view.
     }
     
