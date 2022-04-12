@@ -21,6 +21,17 @@ class QRCodeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    // Add gradients
+    override func viewWillAppear(_ animated: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor.systemPink.cgColor,
+        ]
+                                    
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
 
     func generateBarcode(from string: String) -> UIImage? {
