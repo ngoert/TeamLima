@@ -25,6 +25,7 @@
 		D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB427FE309D0079922A /* QRCodeViewController.swift */; };
 		D6968EB927FE49470079922A /* MyItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EB827FE49470079922A /* MyItemsViewController.swift */; };
 		D6968EBD2805D76F0079922A /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EBC2805D76E0079922A /* ForgetPasswordViewController.swift */; };
+		D6968EBF2805FF100079922A /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6968EBE2805FF0F0079922A /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		D6968EB427FE309D0079922A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		D6968EB827FE49470079922A /* MyItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyItemsViewController.swift; sourceTree = "<group>"; };
 		D6968EBC2805D76E0079922A /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		D6968EBE2805FF0F0079922A /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				D6968EB427FE309D0079922A /* QRCodeViewController.swift */,
 				D6968EB827FE49470079922A /* MyItemsViewController.swift */,
 				D6968EBC2805D76E0079922A /* ForgetPasswordViewController.swift */,
+				D6968EBE2805FF0F0079922A /* SplashScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				D6398AB627F77D0600AF275C /* LoginViewController.swift in Sources */,
 				D6398ACC27F7849100AF275C /* RegisterationViewController.swift in Sources */,
+				D6968EBF2805FF100079922A /* SplashScreenViewController.swift in Sources */,
 				D6968EB527FE309D0079922A /* QRCodeViewController.swift in Sources */,
 				D6398AB227F77D0500AF275C /* AppDelegate.swift in Sources */,
 				D6398AFB27FCC20400AF275C /* NetworkManager.swift in Sources */,
