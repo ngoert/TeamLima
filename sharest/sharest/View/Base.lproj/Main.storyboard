@@ -47,11 +47,22 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="osu-logo-vector" translatesAutoresizingMaskIntoConstraints="NO" id="P2Q-Fa-QgX">
                                 <rect key="frame" x="87" y="152" width="240" height="129"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-1m-Zd5">
+                                <rect key="frame" x="20" y="502" width="374" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password!">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccY-my-trM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P2Q-Fa-QgX" secondAttribute="trailing" constant="87" id="138-io-DDb"/>
+                            <constraint firstItem="n3g-1m-Zd5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3RK-fV-JYl"/>
                             <constraint firstItem="KMA-Hq-FXM" firstAttribute="top" secondItem="VFt-Kw-JtK" secondAttribute="bottom" constant="5" id="3vD-iB-EjX"/>
                             <constraint firstItem="P2Q-Fa-QgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="65t-5n-GHR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VFt-Kw-JtK" secondAttribute="trailing" constant="20" id="Ac5-kv-bu0"/>
@@ -59,10 +70,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMA-Hq-FXM" secondAttribute="trailing" constant="20" id="FFB-wL-rcg"/>
                             <constraint firstItem="3Bv-08-kAF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mrg-9r-2Pw"/>
                             <constraint firstItem="P2Q-Fa-QgX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="Nx2-CP-v9f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n3g-1m-Zd5" secondAttribute="trailing" constant="20" id="TCk-Cj-TSZ"/>
                             <constraint firstItem="KMA-Hq-FXM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aUa-k1-Zh8"/>
                             <constraint firstItem="gMx-Eq-331" firstAttribute="top" secondItem="KMA-Hq-FXM" secondAttribute="bottom" constant="10" id="bEb-R5-SEW"/>
                             <constraint firstItem="3Bv-08-kAF" firstAttribute="top" secondItem="gMx-Eq-331" secondAttribute="bottom" constant="10" id="bWx-mr-frF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gMx-Eq-331" secondAttribute="trailing" constant="177" id="fUr-eg-oPW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="n3g-1m-Zd5" secondAttribute="bottom" constant="280" id="i0w-wJ-ZH9"/>
                             <constraint firstItem="VFt-Kw-JtK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="213" id="jNe-fh-qqY"/>
                             <constraint firstItem="VFt-Kw-JtK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lla-G3-fn8"/>
                             <constraint firstItem="gMx-Eq-331" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="156" id="nGH-dw-d6X"/>
@@ -140,6 +153,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZL-XE-oeb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2096" y="1017"/>
+        </scene>
+        <!--Forget Password View Controller-->
+        <scene sceneID="Y0q-7p-NLy">
+            <objects>
+                <viewController storyboardIdentifier="forgetPasswordVC" id="n8k-eL-Mi3" customClass="ForgetPasswordViewController" customModule="sharest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eA4-8I-rwm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2l-Eu-Iy9">
+                                <rect key="frame" x="20" y="128" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ux-Pc-EMy">
+                                <rect key="frame" x="160" y="182" width="94" height="74"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="button_reset"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="n8k-eL-Mi3" eventType="touchUpInside" id="eVv-jn-w4H"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVW-Rx-y0l">
+                                <rect key="frame" x="20" y="450" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CA1-Nf-0gX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CA1-Nf-0gX" firstAttribute="trailing" secondItem="n2l-Eu-Iy9" secondAttribute="trailing" constant="20" id="15l-VX-IAg"/>
+                            <constraint firstItem="0Ux-Pc-EMy" firstAttribute="leading" secondItem="CA1-Nf-0gX" secondAttribute="leading" constant="160" id="3Bw-1F-kFb"/>
+                            <constraint firstItem="CA1-Nf-0gX" firstAttribute="trailing" secondItem="0Ux-Pc-EMy" secondAttribute="trailing" constant="160" id="6a4-Zs-Eda"/>
+                            <constraint firstItem="n2l-Eu-Iy9" firstAttribute="leading" secondItem="CA1-Nf-0gX" secondAttribute="leading" constant="20" id="d5N-Zf-JRP"/>
+                            <constraint firstItem="0Ux-Pc-EMy" firstAttribute="top" secondItem="n2l-Eu-Iy9" secondAttribute="bottom" constant="20" id="dNK-J5-3fL"/>
+                            <constraint firstItem="n2l-Eu-Iy9" firstAttribute="top" secondItem="CA1-Nf-0gX" secondAttribute="top" constant="84" id="oTy-Gx-nDP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertTextLabel" destination="KVW-Rx-y0l" id="Qyx-kw-KN3"/>
+                        <outlet property="emailTextField" destination="n2l-Eu-Iy9" id="wLI-Tn-Hwo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qeO-Th-t7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2911.594202898551" y="1012.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="rom-qi-KoB">
@@ -424,6 +486,7 @@
         <image name="button_login-2" width="128" height="55"/>
         <image name="button_pass" width="138" height="60"/>
         <image name="button_register" width="151" height="55"/>
+        <image name="button_reset" width="145" height="60"/>
         <image name="button_share" width="145" height="60"/>
         <image name="button_upload" width="142" height="55"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>

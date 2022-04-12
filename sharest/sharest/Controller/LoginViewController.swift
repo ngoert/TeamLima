@@ -71,6 +71,18 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func forgetPassword(_ sender: Any) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+         let destVC = storyboard.instantiateViewController(withIdentifier: "forgetPasswordVC") as! ForgetPasswordViewController
+
+        destVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        destVC.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+
+         self.present(destVC, animated: true, completion: nil)
+    }
+    
+    
     func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Invalid UserName/Password", message: message, preferredStyle: .alert)
 

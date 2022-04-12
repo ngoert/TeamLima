@@ -43,6 +43,8 @@ class RegisterationViewController: UIViewController {
                     
                 }
                 print("User ID---- ",userID)
+                self.dismiss(animated: true, completion: nil)
+
                 
             }
           
