@@ -31,6 +31,17 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.view.backgroundColor = UIColor(cgColor: CGColor(red: 235/255, green: 103/255, blue: 43/255, alpha: 1))
         // Do any additional setup after loading the view.
     }
+    // Add gradients
+    override func viewWillAppear(_ animated: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor.systemPink.cgColor,
+        ]
+                                    
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
    
     

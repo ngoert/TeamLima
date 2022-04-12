@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(1)
         FirebaseApp.configure()
         // Initialize the Amazon Cognito credentials provider
-        let poolId = "dont-push-in-git-ask-from-fj"
+        let poolId = "us-east-1:90b84974-f3f5-4edd-b051-690d3f9a146c"
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
            identityPoolId:poolId)
         let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
