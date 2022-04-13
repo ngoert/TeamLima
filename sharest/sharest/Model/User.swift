@@ -13,5 +13,4 @@ class User: Decodable, Encodable{
     var lastName:String = ""
     var emailAddress:String = ""
     var profileImageURL:String = ""
-   
 }

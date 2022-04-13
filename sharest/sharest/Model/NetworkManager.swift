@@ -16,8 +16,6 @@ class NetworkManager{
         return Promise {resolver in
             let progressBlock: AWSS3TransferUtilityProgressBlock = {
                 task,progress in
-                AddItemViewController.instance?.myProgress = Float(progress.fractionCompleted)
-                AddItemViewController.instance?.prrogressLabelText = "\(floor(Float(progress.fractionCompleted)*100))"
                 print("image uploading :", progress.fractionCompleted)
                 
                 
