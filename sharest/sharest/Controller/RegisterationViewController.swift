@@ -22,6 +22,8 @@ class RegisterationViewController: UIViewController {
     }
     //Function to register user to database
     @IBAction func registerUserButton(_ sender: Any) {
+        navigationController?.navigationBar.isHidden = true
+        
         Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
             if error != nil{
                 print(error!)
@@ -30,7 +32,7 @@ class RegisterationViewController: UIViewController {
                 print("User Registration Successful")
                 print(user)
                 
-                var newUser = User()
+                let newUser = User()
                 newUser.uuid = (user?.user.uid)!
                 newUser.emailAddress = self.userEmail.text!
                 newUser.firstName = self.firstNameLabel.text!
@@ -46,28 +48,25 @@ class RegisterationViewController: UIViewController {
                 catch {
                     print("\(error)")
                 }
-                
-                
-                  
             }
           
         })
-    
-        
-        
     }
     
     func postUserData(data: Data) {
         let url = URL(string: "https://cs.okstate.edu/~cohutso/postUser.php")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
         request.httpBody = data
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let _ = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 return
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
             }
         }
         

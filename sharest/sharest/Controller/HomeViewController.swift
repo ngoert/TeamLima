@@ -12,10 +12,10 @@ import SideMenu
 class HomeViewController: UIViewController {
     
     var menu: SideMenuNavigationController?
-    var imageView:UIImageView = UIImageView()
+    @IBOutlet weak var imageView: UIImageView!
     var userInfo : User = User()
-    var imageList:Array = ["https://teamlimashareit.s3.amazonaws.com/cup.png","https://teamlimashareit.s3.amazonaws.com/57617657c1e6d6e543bbcc9fd928f475ed61135f_toughbook_55.jpg","https://teamlimashareit.s3.amazonaws.com/88068351-03A9-4942-8B1C-A592337A57E9-56809-000002BD65745DDA.jpg",
-        "https://teamlimashareit.s3.amazonaws.com/s-l300.jpeg"]
+    var listings : [Listing] = []
+    var currentListing = 0;
     var i = 1
 
     
@@ -23,12 +23,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mySpinner.hidesWhenStopped = true
-        imageView = UIImageView(frame: CGRect(x: 60, y: 177, width: 294, height: 384))
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
-        imageView.layer.borderWidth = 2.0
-        imageView.clipsToBounds = true
-        view.addSubview(imageView)
+        
+        getLisitings();
         
         let menuController = MenuListController()
         menu = SideMenuNavigationController(rootViewController: menuController)
@@ -39,13 +35,37 @@ class HomeViewController: UIViewController {
         
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        
-        downloadImage(url:imageList[0])
-        
-
-        // Do any additional setup after loading the view.
     }
     
+    func getLisitings()
+    {
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/getAllListings.php")!
+        
+        let request = URLRequest(url: url)
+        print("\(url)")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            do {
+                self.listings = try JSONDecoder().decode([Listing].self, from: data)
+                DispatchQueue.main.async {
+                    self.onDataLoaded()
+                }
+                
+            } catch {
+                print("\(error)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func onDataLoaded() {
+        let listingURL = listings[currentListing].imageURL
+        downloadImage(url:listingURL);
+    }
     
     func downloadImage(url:String){
         // Create URL
@@ -78,16 +98,17 @@ class HomeViewController: UIViewController {
     }
     */
     @IBAction func didPressNext(_ sender: Any) {
-            if i <= self.imageList.count{
-                mySpinner.startAnimating()
-                self.downloadImage(url: imageList[i])
-                i += 1
-                if i == imageList.count{
-                    i = 0
-                }
-                
-            }
-      
+        currentListing += 1
+        if(currentListing < listings.count)
+        {
+            let listingURL = listings[currentListing].imageURL
+            downloadImage(url: listingURL)
+        }
+        else
+        {
+            imageView.image = nil
+        }
+        
     }
     
     @IBAction func didTapMenuButton(){
@@ -128,8 +149,8 @@ class MenuListController: UITableViewController{
     }
   
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footer = UIView(frame: CGRect(x: 50, y: 50, width:600, height: 600))
-        var userImageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 200, height: 200))
+        let footer = UIView(frame: CGRect(x: 50, y: 50, width:600, height: 600))
+        let userImageView = UIImageView(frame: CGRect(x: 20, y: 20, width: 200, height: 200))
         userImageView.image = UIImage(named: "logo")
         userImageView.layer.cornerRadius = userImageView.bounds.size.width
         footer.addSubview(userImageView )
@@ -152,12 +173,13 @@ class MenuListController: UITableViewController{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
             profileViewController.userInfo = userInfo
-            show(profileViewController, sender: self)
+            navigationController?.pushViewController(profileViewController, animated: false)
         }
         if items[indexPath.row] == "Add Items"{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let addItemViewController = storyBoard.instantiateViewController(withIdentifier: "addItemViewController") as! AddItemViewController
+            addItemViewController.userInfo = userInfo
             show(addItemViewController, sender: self)
         }
         

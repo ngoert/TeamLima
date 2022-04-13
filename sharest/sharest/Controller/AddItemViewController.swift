@@ -9,52 +9,46 @@ import UIKit
 import PromiseKit
 import AWSS3
 
-class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var uploadButton: UIButton!
-    @IBOutlet weak var myProgressLabel: UILabel!
-    @IBOutlet weak var imageUploadProgressView: UIProgressView!
     
-     
-    var myProgress:Float = 0.0
-    var prrogressLabelText:String = "0%"
+    @IBOutlet weak var itemNameLabel: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var userInfo = User()
     
     static var instance: AddItemViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        descriptionTextView.delegate = self;
         AddItemViewController.instance = self
-        imageUploadProgressView.progress = myProgress
-        myProgressLabel.text = prrogressLabelText
-        // Do any additional setup after loading the view.
+        
+        //update placeholder text of description box
+        descriptionTextView.text = "Description"
+        descriptionTextView.textColor = UIColor.placeholderText
     }
     
-   
-    
-    @IBAction func uploadButtonTap(_ sender: Any) {
-        DispatchQueue.main.async {
-            var myPickerController = UIImagePickerController()
-            myPickerController.delegate = self;
-            myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
-            self.present(myPickerController, animated: true, completion: nil)
-           }
+    @IBAction func didTapAddImage(_ sender: UITapGestureRecognizer){
+        let myPickerController = UIImagePickerController()
+        
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        
+        self.present(myPickerController, animated: true, completion: nil)
+    }
        
-
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-    
-        myImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        myImageView.backgroundColor = UIColor.clear
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func uploadButtonTap(_ sender: Any) {
         let request = uploadImage(image:  myImageView.image!)
         request.done { url in
             print("success",url)
-            //TODO
-            //Add the s3 url to user object which was created in successful login
-            //Send the user object to database
+            DispatchQueue.main.async {
+                self.uploadItemListing(imageURL: url)
+            }
             self.showErrorAlert(message: "Image Successfully uploaded in S3")
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
@@ -66,9 +60,21 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    /*
+     In the image picker controller the user can pick the image they want to use as the lisitng's visual
+     */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        let uploadedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage //the image picked by the user
+        myImageView.image = squareCrop(image: uploadedImage!) //crop to fit common aspect
+        myImageView.backgroundColor = UIColor.clear
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
-        
+        picker.dismiss(animated: true) {}
     }
     
     //Function to upload image in the S3 bucket
@@ -77,14 +83,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let progressBlock: AWSS3TransferUtilityProgressBlock = {
                 task,progress in
                 DispatchQueue.main.async {
-                    self.imageUploadProgressView.progress = Float(progress.fractionCompleted)
-                    self.myProgressLabel.text = "\(floor(Float(progress.fractionCompleted)*100))"
                     print("image uploading :", progress.fractionCompleted)
                 }
-                
-                
-                
             }
+            
             let uniqueName = ProcessInfo.processInfo.globallyUniqueString+".jpg"
             let transferUtility = AWSS3TransferUtility.default()
             let imageData = image.jpegData(compressionQuality: 0.1)
@@ -101,10 +103,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                     let imageUrl = URL(string:"https://\(bucketName).s3.amazonaws.com/\(uniqueName)")
                     resolver.fulfill(imageUrl!)
                 }
-                
-                
             })
-                
         }
     }
     
@@ -116,7 +115,85 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }))
         self.present(alert, animated: true, completion: nil)
     }
- 
+    
+    func uploadItemListing(imageURL: URL)
+    {
+        let listing = Listing()
+        listing.itemName = itemNameLabel.text!
+        listing.description = descriptionTextView.text!
+        listing.uuid = userInfo.uuid
+        listing.imageURL = "\(imageURL)";
+        
+        var data = Data()
+        do {
+            data = try JSONEncoder().encode(listing)
+        } catch {
+            print(error)
+        }
+        
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/postListing.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    /*
+        Crops the image to fit a unifrom square aspect ratio of 1:1
+     */
+    func squareCrop(image: UIImage) -> UIImage
+    {
+        //get shortest side for square crop
+        let sideLength = min(
+            image.size.width,
+            image.size.height
+        )
+        
+        //determine the offset of the center of the image
+        let size = image.size
+        let xOffset = (size.width - sideLength) / 2.0
+        let yOffset = (size.height - sideLength) / 2.0
+        
+        let cropRect = CGRect(
+            x: xOffset,
+            y: yOffset,
+            width: sideLength,
+            height: sideLength
+        ).integral
+        
+        let cgImage = image.cgImage!
+        let croppedImage = cgImage.cropping(to: cropRect)!
+        
+        return UIImage(cgImage: croppedImage, scale: image.imageRendererFormat.scale, orientation: image.imageOrientation)
+    }
+    
+    //MARK: - Text View Delegates
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.placeholderText {
+            textView.text = nil
+            textView.textColor = UIColor.label
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Description"
+            textView.textColor = UIColor.placeholderText
+        }
+    }
     
     /*
     // MARK: - Navigation
