@@ -65,23 +65,6 @@ class RegisterationViewController: UIViewController {
                 catch {
                     print("\(error)")
                 }
-                
-                let newUser = User()
-                newUser.uuid = (user?.user.uid)!
-                newUser.emailAddress = self.userEmail.text!
-                newUser.firstName = self.firstNameLabel.text!
-                newUser.lastName = self.lastNameLabel.text!
-                
-                
-                do{
-                    let jsonData = try JSONEncoder().encode(newUser)
-                    DispatchQueue.main.async {
-                        self.postUserData(data: jsonData)
-                    }
-                }
-                catch {
-                    print("\(error)")
-                }
             }
           
         })

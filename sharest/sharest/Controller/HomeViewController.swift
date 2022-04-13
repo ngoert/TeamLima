@@ -119,7 +119,9 @@ class HomeViewController: UIViewController {
         }
         else
         {
-            imageView.image = nil
+            currentListing = 0
+            let listingURL = listings[currentListing].imageURL
+            downloadImage(url: listingURL)
         }
         
     }
