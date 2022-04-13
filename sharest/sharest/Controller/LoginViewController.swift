@@ -20,9 +20,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         navigationItem.hidesBackButton = true
+
         // Do any additional setup after loading the view.
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor.systemPink.cgColor,
+        ]
+                                    
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     //Function to sign in user to database
     @IBAction func loginButton(_ sender: Any) {
@@ -57,6 +70,18 @@ class ViewController: UIViewController {
     @IBAction func registerUser(_ sender: Any) {
         performSegue(withIdentifier: "goToRegister", sender: self)
         
+    }
+    
+    
+    @IBAction func forgetPassword(_ sender: Any) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+         let destVC = storyboard.instantiateViewController(withIdentifier: "forgetPasswordVC") as! ForgetPasswordViewController
+
+        destVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        //destVC.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+
+         self.present(destVC, animated: true, completion: nil)
     }
     
     
@@ -109,3 +134,25 @@ class ViewController: UIViewController {
 
 
     
+extension UIColor {
+
+    func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjust(by: abs(percentage) )
+    }
+
+    func darker(by percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjust(by: -1 * abs(percentage) )
+    }
+
+    func adjust(by percentage: CGFloat = 30.0) -> UIColor? {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: min(red + percentage/100, 1.0),
+                           green: min(green + percentage/100, 1.0),
+                           blue: min(blue + percentage/100, 1.0),
+                           alpha: alpha)
+        } else {
+            return nil
+        }
+    }
+}

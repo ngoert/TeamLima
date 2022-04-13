@@ -21,17 +21,21 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var mySpinner: UIActivityIndicatorView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+
         mySpinner.hidesWhenStopped = true
         imageView = UIImageView(frame: CGRect(x: 60, y: 177, width: 294, height: 384))
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
-        imageView.layer.borderWidth = 2.0
+        imageView.layer.borderWidth = 2
         imageView.clipsToBounds = true
         view.addSubview(imageView)
         
+        
         let menuController = MenuListController()
         menu = SideMenuNavigationController(rootViewController: menuController)
+
         menu?.leftSide = true
         menuController.userInfo = userInfo
         //navigationItem.hidesBackButton = true
@@ -46,6 +50,16 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor.systemPink.cgColor,
+        ]
+                                    
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
     func downloadImage(url:String){
         // Create URL
@@ -58,6 +72,7 @@ class HomeViewController: UIViewController {
                        // Create Image and Update Image View
                        print("Downloading image from url.......")
                        self?.mySpinner.stopAnimating()
+                       UIView.transition(with: self!.imageView, duration: 0.25, options: .transitionFlipFromLeft, animations: {}, completion: nil)
                        self?.imageView.image = UIImage(data: data)
                    }
                }

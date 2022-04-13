@@ -1,22 +1,25 @@
 //
-//  ProfileViewController.swift
+//  SplashScreenViewController.swift
 //  sharest
 //
-//  Created by Faisal Jaffri on 4/6/22.
+//  Created by Faisal Jaffri on 4/12/22.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController,UINavigationControllerDelegate {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    var userInfo = User()
+class SplashScreenViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = "\(userInfo.firstName) \(userInfo.lastName)"
+        var imageView : UIImageView
+        imageView  = UIImageView(frame:CGRect(x:10, y: 50, width: 278, height: 117))
+        imageView.image = UIImage(named:"logo")
+        self.view.addSubview(imageView)
+
         // Do any additional setup after loading the view.
     }
+    
+    
     // Add gradients
     override func viewWillAppear(_ animated: Bool) {
         let gradientLayer = CAGradientLayer()
@@ -28,7 +31,6 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate {
                                     
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 
     /*
     // MARK: - Navigation

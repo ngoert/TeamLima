@@ -20,6 +20,16 @@ class RegisterationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [
+            UIColor.systemOrange.cgColor,
+            UIColor.systemPink.cgColor,
+        ]
+                                    
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     //Function to register user to database
     @IBAction func registerUserButton(_ sender: Any) {
         Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
@@ -34,6 +44,8 @@ class RegisterationViewController: UIViewController {
                     
                 }
                 print("User ID---- ",userID)
+                self.dismiss(animated: true, completion: nil)
+
                 
                 var newUser = User()
                 newUser.uuid = (user?.user.uid)!
