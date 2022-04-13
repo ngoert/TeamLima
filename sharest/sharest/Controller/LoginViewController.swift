@@ -77,7 +77,7 @@ class ViewController: UIViewController {
          let destVC = storyboard.instantiateViewController(withIdentifier: "forgetPasswordVC") as! ForgetPasswordViewController
 
         destVC.modalPresentationStyle = UIModalPresentationStyle.popover
-        destVC.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        //destVC.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
 
          self.present(destVC, animated: true, completion: nil)
     }

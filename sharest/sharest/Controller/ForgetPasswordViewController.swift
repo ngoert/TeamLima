@@ -47,7 +47,7 @@ class ForgetPasswordViewController: UIViewController {
                 self.showErrorAlert(message: errorMessage!)
             }
             else{
-                
+                    alertTextLabel.textColor = .black
                     alertTextLabel.text! = "Password Reset Link sent to email!"
 
             }
