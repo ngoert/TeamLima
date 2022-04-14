@@ -19,6 +19,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var userInfo = User()
+    var hasUploadedPhoto = false
     
     static var instance: AddItemViewController?
     
@@ -54,23 +55,51 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
        
     @IBAction func uploadButtonTap(_ sender: Any) {
-        let request = uploadImage(image:  myImageView.image!)
-        request.done { url in
-            print("success",url)
-            DispatchQueue.main.async {
-                self.uploadItemListing(imageURL: url)
-            }
-            self.showErrorAlert(message: "Image Successfully uploaded in S3")
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-            }
-            
-        }.catch{ error in
-            print("Error description")
+        
+        if !hasUploadedPhoto
+        {
+            self.highlightMissingField()
             
         }
+        else if itemNameLabel.text!.isEmpty
+        {
+            let notUploadedAlert = UIAlertController(title: "Item has no name", message: "Please give your item a name.", preferredStyle: UIAlertController.Style.alert)
+            notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
+            self.present(notUploadedAlert, animated: true)
+        }
+        else if descriptionTextView.textColor != UIColor.placeholderText
+        {
+            let notUploadedAlert = UIAlertController(title: "Item has no description", message: "Please give your item a description.", preferredStyle: UIAlertController.Style.alert)
+            notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
+            self.present(notUploadedAlert, animated: true)
+        }
+        else
+        {
+            let request = uploadImage(image:  myImageView.image!)
+            request.done { url in
+                print("success",url)
+                DispatchQueue.main.async {
+                    self.uploadItemListing(imageURL: url)
+                }
+                self.showErrorAlert(message: "Image Successfully uploaded in S3")
+                if let navController = self.navigationController {
+                    navController.popViewController(animated: true)
+                }
+                
+            }.catch{ error in
+                print("Error description")
+                
+            }
+        }
+        
     }
     
+    func highlightMissingField()
+    {
+        myImageView.layer.borderColor = CGColor.init(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        myImageView.layer.borderWidth = 5
+        
+    }
     /*
      In the image picker controller the user can pick the image they want to use as the lisitng's visual
      */
@@ -80,6 +109,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         myImageView.image = squareCrop(image: uploadedImage!) //crop to fit common aspect
         myImageView.backgroundColor = UIColor.clear
         
+        hasUploadedPhoto = true;
         self.dismiss(animated: true, completion: nil)
     }
     
