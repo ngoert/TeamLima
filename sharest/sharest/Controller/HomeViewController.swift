@@ -23,9 +23,19 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         mySpinner.hidesWhenStopped = true
+        //Add border to imageview
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.layer.borderWidth = 2
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
         
         getLisitings();
+        
+      
+        
         
         let menuController = MenuListController()
         menu = SideMenuNavigationController(rootViewController: menuController)
