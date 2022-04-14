@@ -17,6 +17,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var itemNameLabel: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var imageUploadProgressView: UIProgressView!
+
     
     var userInfo = User()
     
@@ -94,6 +96,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let progressBlock: AWSS3TransferUtilityProgressBlock = {
                 task,progress in
                 DispatchQueue.main.async {
+                    self.imageUploadProgressView.progress = Float(progress.fractionCompleted)
                     print("image uploading :", progress.fractionCompleted)
                 }
             }
