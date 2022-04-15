@@ -26,6 +26,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageUploadProgressView.isHidden = true
         
         descriptionTextView.delegate = self;
         AddItemViewController.instance = self
@@ -57,6 +58,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
        
     @IBAction func uploadButtonTap(_ sender: Any) {
         let request = uploadImage(image:  myImageView.image!)
+        imageUploadProgressView.isHidden = false
         request.done { url in
             print("success",url)
             DispatchQueue.main.async {
