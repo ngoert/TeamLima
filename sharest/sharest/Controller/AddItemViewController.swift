@@ -65,13 +65,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         else if itemNameLabel.text!.isEmpty
         {
-            let notUploadedAlert = UIAlertController(title: "Item has no name", message: "Please give your item a name.", preferredStyle: UIAlertController.Style.alert)
+            let notUploadedAlert = UIAlertController(title: "Item has no name", message: "Please give your item a name.", preferredStyle: .alert)
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
             self.present(notUploadedAlert, animated: true)
         }
         else if descriptionTextView.textColor != UIColor.placeholderText
         {
-            let notUploadedAlert = UIAlertController(title: "Item has no description", message: "Please give your item a description.", preferredStyle: UIAlertController.Style.alert)
+            let notUploadedAlert = UIAlertController(title: "Item has no description", message: "Please give your item a description.", preferredStyle: .alert)
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
             self.present(notUploadedAlert, animated: true)
         }

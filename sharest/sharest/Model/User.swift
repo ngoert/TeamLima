@@ -14,3 +14,10 @@ class User: Decodable, Encodable{
     var emailAddress:String = ""
     var profileImageURL:String = ""
 }
+
+class UserInsight : Decodable {
+    var numInteractions = 0
+    var numAsks = 0
+    var numPasses = 0
+    var numPosts = 0
+}

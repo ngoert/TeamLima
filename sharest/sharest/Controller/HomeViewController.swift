@@ -34,9 +34,6 @@ class HomeViewController: UIViewController {
         
         getLisitings();
         
-      
-        
-        
         let menuController = MenuListController()
         menu = SideMenuNavigationController(rootViewController: menuController)
         menu?.leftSide = true
@@ -121,7 +118,18 @@ class HomeViewController: UIViewController {
     }
     */
     @IBAction func didPressNext(_ sender: Any) {
+        
+        //generate interaction data for a pass
+        let interaction = Interaction()
+        interaction.didPass = true;
+        interaction.interactorID = userInfo.uuid
+        interaction.ownerID = listings[currentListing].uuid
+        interaction.listingID = Int(listings[currentListing].listingID)!
+
+        postInteraction(interaction);
+        
         currentListing += 1
+        
         if(currentListing < listings.count)
         {
             let listingURL = listings[currentListing].imageURL
@@ -141,6 +149,28 @@ class HomeViewController: UIViewController {
         
     }
   
+    func postInteraction(_ interaction: Interaction)
+    {
+        var data = Data()
+        do {
+            data = try JSONEncoder().encode(interaction)
+        } catch {
+            print(error)
+        }
+        
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/postInteraction.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let _ = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+        }
+        task.resume()
+    }
 
 }
 

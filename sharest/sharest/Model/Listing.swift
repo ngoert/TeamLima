@@ -15,3 +15,10 @@ class Listing: Decodable, Encodable {
     var datePosted : String = ""
     var imageURL: String = ""
 }
+
+class Interaction : Encodable {
+    var listingID = 0
+    var ownerID = ""
+    var interactorID = ""
+    var didPass = true
+}
