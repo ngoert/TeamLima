@@ -55,9 +55,6 @@ class ViewController: UIViewController {
                 //TODO
                 // Create a user object and store user_id, first name, last name, emailadress
                 self.getUserByID(userID: userID)
-
-                //
-                
             }
           
         })
@@ -113,7 +110,6 @@ class ViewController: UIViewController {
         }
         
         task.resume()
-        
     }
     
     func onDataLoaded()

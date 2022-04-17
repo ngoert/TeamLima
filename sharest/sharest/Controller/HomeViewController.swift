@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
     
     func getLisitings()
     {
-        let url = URL(string: "https://cs.okstate.edu/~cohutso/getAllListings.php")!
+        let url = URL(string: "https://cs.okstate.edu/~cohutso/getAllListings.php/\(userInfo.uuid)")!
         
         let request = URLRequest(url: url)
         print("\(url)")
@@ -242,6 +242,7 @@ class MenuListController: UITableViewController{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let insightViewController = storyBoard.instantiateViewController(withIdentifier: "insightViewController") as! InsightViewController
+            insightViewController.userInfo = userInfo
             show(insightViewController, sender: self)
         }
         if items[indexPath.row] == "QR Code"{

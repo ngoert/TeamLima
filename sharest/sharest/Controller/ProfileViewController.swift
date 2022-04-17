@@ -29,7 +29,10 @@ class ProfileViewController: UIViewController,UINavigationControllerDelegate {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-
+    @IBAction func updatePhotoPressed(_ sender: Any) {
+        print("Upload your photo i guess")
+    }
+    
     /*
     // MARK: - Navigation
 
