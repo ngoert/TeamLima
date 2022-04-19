@@ -6,34 +6,51 @@
 //
 
 import UIKit
+import Charts
 
-class InsightViewController: UIViewController {
+class InsightViewController: UIViewController, ChartViewDelegate {
     
     var userInfo = User()
     var userInsight = UserInsight()
+    
+    var pieChart = PieChartView()
+    @IBOutlet weak var insightLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getInsights()
     }
-    // Add gradients
-    override func viewWillAppear(_ animated: Bool) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [
-            UIColor.systemOrange.cgColor,
-            UIColor.systemPink.cgColor,
-        ]
-                                    
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
     }
     
-
+    func layoutPieChart()
+    {
+        pieChart.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        pieChart.center = view.center
+        
+        view.addSubview(pieChart)
+        
+        let insightDataSet = PieChartDataSet(entries: [
+            PieChartDataEntry(value: Double(userInsight.numAsks), label: "Asks"),
+            PieChartDataEntry(value: Double(userInsight.numPasses), label: "Passes")
+        ])
+        
+        insightDataSet.label = "Item Interactions"
+        insightDataSet.colors = ChartColorTemplates.pastel()
+        let interactionData = PieChartData(dataSet: insightDataSet)
+        pieChart.data = interactionData;
+        pieChart.isUserInteractionEnabled = false
+    }
+    
     func onInsightLoaded()
     {
         //TODO: do things with user insights
-        print(userInsight.numPosts)
+        layoutPieChart()
     }
     
     func getInsights() {

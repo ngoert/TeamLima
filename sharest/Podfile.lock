@@ -348,6 +348,10 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - Charts (4.0.2):
+    - Charts/Core (= 4.0.2)
+  - Charts/Core (4.0.2):
+    - SwiftAlgorithms (~> 1.0)
   - Firebase/Analytics (8.14.0):
     - Firebase/Core
   - Firebase/Auth (8.14.0):
@@ -502,10 +506,12 @@ PODS:
     - PromiseKit/CorePromise
   - PromisesObjC (2.0.0)
   - SideMenu (6.5.0)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AWSS3
+  - Charts
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
@@ -520,6 +526,7 @@ SPEC REPOS:
     - AWSCore
     - AWSS3
     - BoringSSL-GRPC
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -539,6 +546,7 @@ SPEC REPOS:
     - PromiseKit
     - PromisesObjC
     - SideMenu
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -546,6 +554,7 @@ SPEC CHECKSUMS:
   AWSCore: 1420cdfb89730620224a437625f6cca30f49e168
   AWSS3: 484d48041ae04034f114e565304f7ad610c8ca13
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   FirebaseAnalytics: 2fc3876e2eb347673ad2f35e249ae7b15d6c88f5
   FirebaseAuth: c5fde343630090253d3af7e2d35697b414b40202
@@ -565,7 +574,8 @@ SPEC CHECKSUMS:
   PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 004f1cd74ffc33c7c2aded299fcb659335559605
+PODFILE CHECKSUM: 4826251ee5cbe2571f4edc860e5313a0a16cb708
 
 COCOAPODS: 1.11.3

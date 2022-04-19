@@ -38,22 +38,22 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     func downloadImage(url:String){
         // Create URL
-     
-        let url = URL(string: url)!
-        print("Download started")
-        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in
-               if let data = data {
-                   DispatchQueue.main.async {
-                       var profileImage = UIImage(data: data)
-                       profileImage = self?.circleCrop(image: profileImage!)
-                       self?.profileImageView.image = profileImage
-                   }
-               }
-           }
-            
         
-        // Start Data Task
-        dataTask.resume()
+        if let url = URL(string: url)
+        {
+            print("Download started")
+            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        var profileImage = UIImage(data: data)
+                        profileImage = self?.circleCrop(image: profileImage!)
+                        self?.profileImageView.image = profileImage
+                    }
+                }
+            }
+            // Start Data Task
+            dataTask.resume()
+        }
     }
     
     @IBAction func updatePhotoPressed(_ sender: Any) {
@@ -205,14 +205,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             })
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let insightController = segue.destination as? InsightViewController
+        insightController?.userInfo = userInfo
     }
-    */
+    
 
 }
