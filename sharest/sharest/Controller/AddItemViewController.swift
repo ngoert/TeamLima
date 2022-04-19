@@ -83,7 +83,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 DispatchQueue.main.async {
                     self.uploadItemListing(imageURL: url)
                 }
-                self.showErrorAlert(message: "Image Successfully uploaded in S3")
                 if let navController = self.navigationController {
                     navController.popViewController(animated: true)
                 }
