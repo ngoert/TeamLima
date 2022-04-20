@@ -8,13 +8,12 @@ Firebase to the Xcode project.
 Open location of sharest.xcworkspace. Still in terminal, run "pod install". 
 
 `
-i.e -> 
 sudo gem install cocoapods
 cd Downloads
 cd TeamLima
 cd sharest
 pod install
-
+`
        
 3. Run program in Xcode.
 
