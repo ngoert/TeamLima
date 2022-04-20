@@ -34,6 +34,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         //update placeholder text of description box
         descriptionTextView.text = "Description"
         descriptionTextView.textColor = UIColor.placeholderText
+        
+        descriptionTextView.layer.cornerRadius = 5.0
     }
     // Add gradients
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +71,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
             self.present(notUploadedAlert, animated: true)
         }
-        else if descriptionTextView.textColor != UIColor.placeholderText
+        else if descriptionTextView.textColor == UIColor.placeholderText
         {
             let notUploadedAlert = UIAlertController(title: "Item has no description", message: "Please give your item a description.", preferredStyle: .alert)
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))

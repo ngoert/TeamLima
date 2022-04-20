@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
 
     
     @IBOutlet weak var mySpinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -40,8 +41,6 @@ class HomeViewController: UIViewController {
         menu = SideMenuNavigationController(rootViewController: menuController)
         menu?.leftSide = true
         menuController.userInfo = userInfo
-        //navigationItem.hidesBackButton = true
-        //navigationItem.titleView?.backgroundColor = .black
         
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
@@ -92,7 +91,7 @@ class HomeViewController: UIViewController {
     func downloadImage(url:String){
         // Create URL
      
-          let url = URL(string: url)!
+        let url = URL(string: url)!
         print("Download started")
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in
                if let data = data {
@@ -111,15 +110,7 @@ class HomeViewController: UIViewController {
             
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func didPressNext(_ sender: Any) {
         
         //generate interaction data for a pass
@@ -135,14 +126,12 @@ class HomeViewController: UIViewController {
         
         if(currentListing < listings.count)
         {
-            let listingURL = listings[currentListing].imageURL
-            downloadImage(url: listingURL)
+            onDataLoaded()
         }
         else
         {
             currentListing = 0
-            let listingURL = listings[currentListing].imageURL
-            downloadImage(url: listingURL)
+            onDataLoaded()
         }
         
     }
@@ -177,8 +166,9 @@ class HomeViewController: UIViewController {
 
 }
 
+// MARK: --Side Menu
 class MenuListController: UITableViewController{
-    var items = ["Profile","Add Items", "Insights", "QR Code","My Items", "Logout"]
+    var items = ["Profile","Add Items", "QR Code","My Items", "Logout"]
     var userInfo = User()
     
     override func viewDidLoad() {
@@ -189,7 +179,6 @@ class MenuListController: UITableViewController{
     }
     func logoutUser() {
         // call from any screen
-        
         do { try
             Auth.auth().signOut()
             print("User logged out")
@@ -203,7 +192,6 @@ class MenuListController: UITableViewController{
   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
-
     }
   
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -240,14 +228,6 @@ class MenuListController: UITableViewController{
             addItemViewController.userInfo = userInfo
             show(addItemViewController, sender: self)
         }
-        
-        if items[indexPath.row] == "Insights"{
-          
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let insightViewController = storyBoard.instantiateViewController(withIdentifier: "insightViewController") as! InsightViewController
-            insightViewController.userInfo = userInfo
-            show(insightViewController, sender: self)
-        }
         if items[indexPath.row] == "QR Code"{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -257,10 +237,9 @@ class MenuListController: UITableViewController{
         if items[indexPath.row] == "My Items"{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let qrCodeViewController = storyBoard.instantiateViewController(withIdentifier: "myItemsViewController") as! MyItemsViewController
-            show(qrCodeViewController, sender: self)
+            let myItemsViewController = storyBoard.instantiateViewController(withIdentifier: "myItemsViewController") as! MyItemsViewController
+            show(myItemsViewController, sender: self)
         }
-        
         if items[indexPath.row] == "Logout"{
           
             logoutUser()
