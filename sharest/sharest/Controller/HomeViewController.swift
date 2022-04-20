@@ -8,11 +8,14 @@
 import UIKit
 import FirebaseAuth
 import SideMenu
+import PromiseKit
 
 class HomeViewController: UIViewController {
     
     var menu: SideMenuNavigationController?
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var itemView: UIView!
+    @IBOutlet weak var itemNameLabel: UILabel!
     var userInfo : User = User()
     var listings : [Listing] = []
     var currentListing = 0;
@@ -30,8 +33,7 @@ class HomeViewController: UIViewController {
         imageView.layer.cornerRadius = 10
         imageView.layer.borderWidth = 2
         imageView.clipsToBounds = true
-        view.addSubview(imageView)
-        
+
         getLisitings();
         
         let menuController = MenuListController()
@@ -84,6 +86,7 @@ class HomeViewController: UIViewController {
     func onDataLoaded() {
         let listingURL = listings[currentListing].imageURL
         downloadImage(url:listingURL);
+        itemNameLabel.text = listings[currentListing].itemName
     }
     
     func downloadImage(url:String){
@@ -97,7 +100,7 @@ class HomeViewController: UIViewController {
                        // Create Image and Update Image View
                        print("Downloading image from url.......")
                        self?.mySpinner.stopAnimating()
-                       UIView.transition(with: self!.imageView, duration: 0.25, options: .transitionFlipFromLeft, animations: {}, completion: nil)
+                       UIView.transition(with: self!.itemView, duration: 0.25, options: .transitionFlipFromLeft, animations: {}, completion: nil)
                        self?.imageView.image = UIImage(data: data)
                    }
                }

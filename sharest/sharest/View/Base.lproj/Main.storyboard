@@ -243,8 +243,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESz-kl-hgT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESz-kl-hgT">
                                 <rect key="frame" x="206" y="596" width="162" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="button_pass">
                                     <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
@@ -253,31 +254,41 @@
                                     <action selector="didPressNext:" destination="3ab-ya-ZK1" eventType="touchUpInside" id="0KL-pI-PyO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F06-9P-wrF">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F06-9P-wrF">
                                 <rect key="frame" x="46" y="596" width="153" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="button_ask">
                                     <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkA-f1-Wux">
-                                <rect key="frame" x="20" y="177" width="374" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OtU-oX-GNw">
                                 <rect key="frame" x="173" y="116" width="69" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R90-S2-wdn">
+                                <rect key="frame" x="20" y="194" width="374" height="374"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkA-f1-Wux">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXo-Jw-rYd">
+                                        <rect key="frame" x="8" y="313" width="358" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="18" height="4"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dIp-ia-e72"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dIp-ia-e72" firstAttribute="bottom" secondItem="F06-9P-wrF" secondAttribute="bottom" constant="143" id="UCe-Qo-IOg"/>
-                            <constraint firstItem="dIp-ia-e72" firstAttribute="trailing" secondItem="ESz-kl-hgT" secondAttribute="trailing" constant="46" id="ZwT-tU-37p"/>
-                            <constraint firstItem="dIp-ia-e72" firstAttribute="bottom" secondItem="ESz-kl-hgT" secondAttribute="bottom" constant="143" id="rSz-J5-j3N"/>
-                            <constraint firstItem="F06-9P-wrF" firstAttribute="leading" secondItem="dIp-ia-e72" secondAttribute="leading" constant="46" id="tiu-Vy-zve"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Home" id="yXZ-DC-uIb">
@@ -290,12 +301,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="PkA-f1-Wux" id="bCo-I5-k7R"/>
+                        <outlet property="itemNameLabel" destination="nXo-Jw-rYd" id="dRz-nW-vbh"/>
+                        <outlet property="itemView" destination="R90-S2-wdn" id="iHI-Re-NoU"/>
                         <outlet property="mySpinner" destination="OtU-oX-GNw" id="gu5-45-rq6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZp-tj-yfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3899" y="98"/>
+            <point key="canvasLocation" x="3898.5507246376815" y="97.767857142857139"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="cce-ef-9Ci">
