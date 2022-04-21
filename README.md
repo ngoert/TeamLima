@@ -1,3 +1,7 @@
+ <p align="center">
+      <b>sharest</b>
+  </p>
+
 <p align="center">
     <a href="https://teamlimashareit.s3.amazonaws.com/Screen+Shot+2022-04-21+at+2.00.10+PM.png"><img src="https://teamlimashareit.s3.amazonaws.com/Screen+Shot+2022-04-21+at+2.00.10+PM.png" width="25%" alt = "sharest Login Screen in Swift"/></a>
 </p>
@@ -6,9 +10,9 @@
 
 ## About
 
-sharest- The app is a group project for Mobile development class developed by Computer Science students of Oklahoma State University. The purpose of the app is to share your items with the students/people living around you. User can upload photos of items from their IOS device and exchange email with other users if they want any item. 
+sharest- The IOS app is a combined effort of Team Lima studying Mobile development class under Dr. Mayfield at Oklahoma State University. The purpose of the app is to share your items with the students/people living around you. User can upload photos of items from their IOS device and exchange email with other users if they want any item. 
 
-The app is integrated with Firebase for authentication and uses Cocoapods. It also user AWS S3 bucket to upload Images and Maria DB to store user information.
+The app is integrated with Firebase for authentication and uses Cocoapods. It also uses AWS S3 bucket to upload Images and Maria DB to store user information.
 
 ## Installation and configuration
 
