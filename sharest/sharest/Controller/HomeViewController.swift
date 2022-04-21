@@ -9,14 +9,18 @@ import UIKit
 import FirebaseAuth
 import SideMenu
 import PromiseKit
+import MessageUI
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
+    
     
     var menu: SideMenuNavigationController?
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var itemView: UIView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var imageDescription: UILabel!
+    let mail = MFMailComposeViewController()
+
     var userInfo : User = User()
     var listings : [Listing] = []
     var currentListing = 0;
@@ -28,8 +32,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         mySpinner.hidesWhenStopped = true
+        mail.mailComposeDelegate = self;
         //Add border to imageview
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
@@ -83,13 +87,53 @@ class HomeViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    @IBAction func sendEmailTapped(_ sender: UIButton) {
+        if (MFMailComposeViewController.canSendMail()){
+        
+        mail.setToRecipients([userInfo.emailAddress])
+        mail.setSubject(listings[currentListing].itemName)
+            mail.setMessageBody("Hi my name is \(userInfo.firstName) \(userInfo.lastName)\n I am intersted in the item", isHTML: false)
+        let imageData: NSData = imageView.image!.pngData()!
+        as NSData
+        mail.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
+        self.present(mail, animated: true, completion: nil)
+        }
+        else{
+            print("Error")
+        }
+        
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result:          MFMailComposeResult, error: Error?) {
+          if let _ = error {
+             self.dismiss(animated: true, completion: nil)
+          }
+          switch result {
+             case .cancelled:
+             print("Cancelled")
+             break
+             case .sent:
+              let interaction = Interaction()
+              interaction.didPass = false;
+              interaction.interactorID = userInfo.uuid
+              interaction.ownerID = listings[currentListing].uuid
+              interaction.listingID = Int(listings[currentListing].listingID)!
+              postInteraction(interaction);
+             print("Mail sent successfully")
+             break
+             case .failed:
+             print("Sending mail failed")
+             break
+             default:
+             break
+          }
+          controller.dismiss(animated: true, completion: nil)
+       }
+    
     func onDataLoaded() {
         let listingURL = listings[currentListing].imageURL
         downloadImage(url:listingURL);
         mySpinner.stopAnimating()
-        itemNameLabel.text = listings[currentListing].itemName
-        imageDescription.text = listings[currentListing].description
-        
+     
 
     }
     
@@ -101,12 +145,16 @@ class HomeViewController: UIViewController {
         print("Download started")
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in
                if let data = data {
-                   DispatchQueue.main.async {
+                   DispatchQueue.main.async { [self] in
                        // Create Image and Update Image View
                        print("Downloading image from url.......")
                        self?.mySpinner.stopAnimating()
                        UIView.transition(with: self!.itemView, duration: 0.25, options: .transitionFlipFromLeft, animations: {}, completion: nil)
                        self?.imageView.image = UIImage(data: data)
+                       self?.itemNameLabel.text = self?.listings[self!.currentListing].itemName
+                       self?.imageDescription.text = self?.listings[self!.currentListing].description
+
+                       
                    }
                }
            }
@@ -254,3 +302,4 @@ class MenuListController: UITableViewController{
     
  
 }
+
