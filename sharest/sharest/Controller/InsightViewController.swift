@@ -28,28 +28,8 @@ class InsightViewController: UIViewController, ChartViewDelegate {
         
     }
     
-    func layoutPieChart()
-    {
-        pieChart.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        pieChart.center = view.center
-        
-        view.addSubview(pieChart)
-        
-        let insightDataSet = PieChartDataSet(entries: [
-            PieChartDataEntry(value: Double(userInsight.numAsks), label: "Asks"),
-            PieChartDataEntry(value: Double(userInsight.numPasses), label: "Passes")
-        ])
-        
-        insightDataSet.label = "Item Interactions"
-        insightDataSet.colors = ChartColorTemplates.pastel()
-        let interactionData = PieChartData(dataSet: insightDataSet)
-        pieChart.data = interactionData;
-        pieChart.isUserInteractionEnabled = false
-    }
-    
     func onInsightLoaded()
     {
-        //TODO: do things with user insights
         layoutPieChart()
     }
     
@@ -76,6 +56,38 @@ class InsightViewController: UIViewController, ChartViewDelegate {
             
             task.resume()
     }
+    
+    func layoutPieChart()
+    {
+        // Build data set from insights pulled from CSX
+        let insightDataSet = PieChartDataSet(entries: [
+            PieChartDataEntry(value: Double(userInsight.numAsks), label: "Asks"),
+            PieChartDataEntry(value: Double(userInsight.numPasses), label: "Passes")
+        ])
+        
+        //stylizing the data set
+        insightDataSet.colors = ChartColorTemplates.pastel()
+        insightDataSet.label = ""
+        
+        pieChart.data = PieChartData(dataSet: insightDataSet);
+        
+        // additonal style information for the chart itself
+        pieChart.holeRadiusPercent = 0.4
+        
+        pieChart.centerText = "Total: \(userInsight.numInteractions)"
+        pieChart.centerTextRadiusPercent = 1.0
+        pieChart.drawCenterTextEnabled = true
+
+        pieChart.transparentCircleColor = NSUIColor.clear
+        pieChart.isUserInteractionEnabled = false
+        
+        //Layout the pie chart within the view
+        pieChart.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2)
+        pieChart.center = CGPoint(x: view.center.x, y: view.center.y - (view.frame.height / 4))
+        
+        view.addSubview(pieChart)
+    }
+    
     /*
     // MARK: - Navigation
 

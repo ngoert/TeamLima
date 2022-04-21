@@ -2,6 +2,9 @@
 //  ProfileViewController.swift
 //  sharest
 //
+//  This View Controller Informs the User of their own information
+//  it includes a picture, their name, and some insights about their profiles activity.
+//
 //  Author: Cole Hutson
 //  Email: cole.hutson@okstate.edu
 //
@@ -57,11 +60,14 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
     }
     
     @IBAction func updatePhotoPressed(_ sender: Any) {
+        // Create an image Picker
         let myPickerController = UIImagePickerController()
         
+        //setup image picker
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
         
+        //push the image picker onto view stack
         self.present(myPickerController, animated: true, completion: nil)
     }
     
@@ -101,8 +107,6 @@ class ProfileViewController: UIViewController,UIImagePickerControllerDelegate, U
             print(error)
         }
         
-        
-        print(String(data: data, encoding: .utf8))
         let url = URL(string: "https://cs.okstate.edu/~cohutso/updateUserPhoto.php")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

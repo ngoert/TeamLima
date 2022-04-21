@@ -88,6 +88,15 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func sendEmailTapped(_ sender: UIButton) {
+        //generate interaction data for an ask
+        let interaction = Interaction()
+        interaction.didPass = false;
+        interaction.interactorID = userInfo.uuid
+        interaction.ownerID = listings[currentListing].uuid
+        interaction.listingID = Int(listings[currentListing].listingID)!
+
+        postInteraction(interaction);
+        
         if (MFMailComposeViewController.canSendMail()){
         
         mail.setToRecipients([userInfo.emailAddress])
@@ -99,7 +108,7 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
         self.present(mail, animated: true, completion: nil)
         }
         else{
-            print("Error")
+            loadNextImage()
         }
         
     }
@@ -112,12 +121,6 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
              print("Cancelled")
              break
              case .sent:
-              let interaction = Interaction()
-              interaction.didPass = false;
-              interaction.interactorID = userInfo.uuid
-              interaction.ownerID = listings[currentListing].uuid
-              interaction.listingID = Int(listings[currentListing].listingID)!
-              postInteraction(interaction);
              print("Mail sent successfully")
              break
              case .failed:
@@ -133,8 +136,6 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
         let listingURL = listings[currentListing].imageURL
         downloadImage(url:listingURL);
         mySpinner.stopAnimating()
-     
-
     }
     
     func downloadImage(url:String){
@@ -161,8 +162,6 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
            // Start Data Task
            dataTask.resume()
-            
-        
     }
 
     @IBAction func didPressNext(_ sender: Any) {
@@ -176,6 +175,12 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
         postInteraction(interaction);
         
+        loadNextImage()
+        
+    }
+    
+    func loadNextImage()
+    {
         currentListing += 1
         
         if(currentListing < listings.count)
@@ -187,7 +192,6 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
             currentListing = 0
             onDataLoaded()
         }
-        
     }
     
     @IBAction func didTapMenuButton(){
@@ -293,6 +297,7 @@ class MenuListController: UITableViewController{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let myItemsViewController = storyBoard.instantiateViewController(withIdentifier: "myItemsViewController") as! MyItemsViewController
             show(myItemsViewController, sender: self)
+            myItemsViewController.userInfo = userInfo
         }
         if items[indexPath.row] == "Logout"{
           

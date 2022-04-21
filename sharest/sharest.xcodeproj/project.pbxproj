@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5A1ABF2812070700921CCD /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5A1ABE2812070700921CCD /* ItemDetailViewController.swift */; };
 		4E7CB55528075882004AF20F /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CB55428075882004AF20F /* Listing.swift */; };
 		72039A26E552D86FD02238B2 /* Pods_sharest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F55CD501C6431DABEDE7AA /* Pods_sharest.framework */; };
 		D6398AB227F77D0500AF275C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6398AB127F77D0500AF275C /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		356FC36E734495C681A5A1CF /* Pods-sharest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharest.release.xcconfig"; path = "Target Support Files/Pods-sharest/Pods-sharest.release.xcconfig"; sourceTree = "<group>"; };
+		4E5A1ABE2812070700921CCD /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		4E7CB55428075882004AF20F /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		B8F55CD501C6431DABEDE7AA /* Pods_sharest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sharest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6398AAE27F77D0500AF275C /* sharest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sharest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				D6968EB827FE49470079922A /* MyItemsViewController.swift */,
 				D6968EBC2805D76E0079922A /* ForgetPasswordViewController.swift */,
 				D6968EBE2805FF0F0079922A /* SplashScreenViewController.swift */,
+				4E5A1ABE2812070700921CCD /* ItemDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				D6398AD527F7C95800AF275C /* User.swift in Sources */,
 				D6968EBD2805D76F0079922A /* ForgetPasswordViewController.swift in Sources */,
 				4E7CB55528075882004AF20F /* Listing.swift in Sources */,
+				4E5A1ABF2812070700921CCD /* ItemDetailViewController.swift in Sources */,
 				D6968EB327FE308C0079922A /* InsightViewController.swift in Sources */,
 				D6398AFF27FCCD7800AF275C /* AddItemViewController.swift in Sources */,
 				D6968EB127FE30790079922A /* ProfileViewController.swift in Sources */,
