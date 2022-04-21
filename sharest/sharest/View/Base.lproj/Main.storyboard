@@ -261,6 +261,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="button_ask">
                                     <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="sendEmailTapped:" destination="3ab-ya-ZK1" eventType="touchUpInside" id="74J-R6-JOD"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R90-S2-wdn">
                                 <rect key="frame" x="20" y="194" width="374" height="374"/>
@@ -293,7 +296,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OtU-oX-GNw">
-                                <rect key="frame" x="71" y="561" width="272" height="113"/>
+                                <rect key="frame" x="59" y="781" width="309" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
