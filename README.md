@@ -14,10 +14,11 @@ Purpose: Give away items you no longer need to those in your community. Users ca
 
 Authors: Team Lima
 - Faisal Jaffri
-- Cole Hutson @cohutso
+- Cole Hutson
 - Micah Trent
-- Nicholas Goertemiller @ngoert
+- Nicholas Goertemiller
 - Prajwal Rereddy 
+
 The app is integrated with Firebase for authentication and uses Cocoapods. It also uses AWS S3 bucket to upload Images and Maria DB to store user information.
 
 ## Installation and configuration
