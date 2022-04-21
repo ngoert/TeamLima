@@ -95,8 +95,9 @@ This section contains all the images uploaded by that particular user.
 ```
 Interaction with Maria DB hosted on CSX server
 ```
-TODO
+The CSX server is the heart of our user data and insights information. All data except for photos[1] is stored in the server and all information is passed to the server using php. 
 
+[1]Photos are stored in AWS.
 ```
 
 
