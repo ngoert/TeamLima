@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var itemView: UIView!
     @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var imageDescription: UILabel!
     var userInfo : User = User()
     var listings : [Listing] = []
     var currentListing = 0;
@@ -85,12 +86,17 @@ class HomeViewController: UIViewController {
     func onDataLoaded() {
         let listingURL = listings[currentListing].imageURL
         downloadImage(url:listingURL);
+        mySpinner.stopAnimating()
         itemNameLabel.text = listings[currentListing].itemName
+        imageDescription.text = listings[currentListing].description
+        
+
     }
     
     func downloadImage(url:String){
         // Create URL
-     
+        mySpinner.startAnimating()
+
         let url = URL(string: url)!
         print("Download started")
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) in

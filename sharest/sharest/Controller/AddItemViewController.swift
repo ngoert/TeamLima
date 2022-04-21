@@ -30,6 +30,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         descriptionTextView.delegate = self;
         AddItemViewController.instance = self
+        imageUploadProgressView.isHidden = true
         
         //update placeholder text of description box
         descriptionTextView.text = "Description"
@@ -127,6 +128,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let progressBlock: AWSS3TransferUtilityProgressBlock = {
                 task,progress in
                 DispatchQueue.main.async {
+                    self.imageUploadProgressView.isHidden = false
                     self.imageUploadProgressView.progress = Float(progress.fractionCompleted)
                     print("image uploading :", progress.fractionCompleted)
                 }
