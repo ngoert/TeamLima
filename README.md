@@ -10,8 +10,14 @@
 
 ## About
 
-sharest- The IOS app is a combined effort of Team Lima studying Mobile development class under Dr. Mayfield at Oklahoma State University. The purpose of the app is to share your items with the students/people living around you. User can upload photos of items from their IOS device and exchange email with other users if they want any item. 
+Purpose: Give away items you no longer need to those in your community. Users can upload photos and descriptions of items they want to give away and other user can take them.
 
+Authors: Team Lima
+- Faisal Jaffri
+- Cole Hutson @cohutso
+- Micah Trent
+- Nicholas Goertemiller @ngoert
+- Prajwal Rereddy 
 The app is integrated with Firebase for authentication and uses Cocoapods. It also uses AWS S3 bucket to upload Images and Maria DB to store user information.
 
 ## Installation and configuration
@@ -45,60 +51,67 @@ Everything should be working fine. Build the project by pressing command+B, to m
 
 ## Documentation
 
-The interface of the app can be found in main.storyboard. The project structure is divided in MVC pattern, so you will find all the class used in the project in MODEL folder,
-all the UIViewControllers in Controller folder and main.storyboard in VIEW folder. The app consist of following screen :
+The apps file system is broken up into the MVC pattern and all files relating to a letter of the pattern in their respective folder:
+- Model
+  - Cotains classes that define the data model. The information that is stored in these classes is identical to the data being stored on the CSX server,    with the exception of insights whose data is sourced from other classes.
+- View
+  - Contains any storyboard files that are being used. The only file here we have directly edited is main.storyboard.
+- Controller
+  - Contains every single view controller. We have tried to keep filenames here relating as closely as possible to the function of their respective views.
 
-```
-Login
-Register
-Forgot Password
-HomePage
-SideMenu Bar with [Profile, Add Items, QR Code, My Items, Logout]
-```
-Authentication
+We have employed a great many views in the creation of this project what follows is a list of those views:
 
-```
-The Authentication is done using Firebase SDK, Authentication takes two steps:
-Registeration - User go to the register page and enter details
-Login - Once registered, user is redirected to Login Page, where user login to procees to Home Page.
-In the backened whenver a user is registered a UUID is generated which acts a Primary Key for that user, and that user id is associated with user for the entire process.
-Once logged in, user can logout by clicking on logout.
-```
-Homepage and Functionality
-```
-Homepage displays all the images which are uploaded by different user on the app.
-The homepage contains a UIImageview with two buttons ASK & PASS.
-PASS - The user can click on the PASS button if they dont like the current item and next item will get populated in the UI
-ASK - If user likes the item, they can press the ASK button and send email to owner.
-```
-Profile & Insight
-```
-It contains a section where user can upload its user profile.
-Also,
-It contains a pie chart whihc shows Insights about user activities:
-Number of Pass -  Number of times a user has skipped a particular item.
-Number of Ask  - Number of times a user has sent email to different users.
-```
-Add Items
-```
-Add Items contains a UiImagePickerDelegate which helps user to select images from gallery. Once image is selected, user gives title, description and press
-upload button to push images to AWS S3 bucket. This image than automatically get broadcasted in every different user Homepage.
-```
-QR Code
-```
-Every user has its own unique Bar code, whihc tells its username and email ID. Once user scans the bar code, It gets landed to a PHP page hosted in the CSX
-server which tells details about the user.
-```
-My Items
-```
-This section contains all the images uploaded by that particular user.
-```
-Interaction with Maria DB hosted on CSX server
-```
-The CSX server is the heart of our user data and insights information. All data except for photos[1] is stored in the server and all information is passed to the server using php. 
+- Login
+- Register
+- Forgot Password
+- HomePage
+  - Side Bar Navigation Menu 
+- Profile 
+- Add Items 
+- QR Code 
+- My Items
 
-[1]Photos are stored in AWS.
-```
+In the following sections we will explain the various features of the app and how we employed them in bringing the app to life.
+
+### Login Page
+
+When a user is logging into the app they are asked to enter their email address and their password. This information is verified (authenticated) using the Firebase SDK by Google. Firebase is very nice for verifying information, but we wanted to related users to other pieces of data in the CSX server.
+We accomplished this by having Firebase generate a user id (uuid) and sending that along with the users other information to the CSX server. **Firebase is only used for authentication** 
+
+### Registration Page
+
+Should a user not have an account they can easily sign up for one from the registration page. The information they provide will be used to set up their account for authentication and for posting and asking for items. The only information the user is asked to provide is their email, their full name and a password (which we don't store). This information is stored on the CSX server and is mostly used on the Profile Page
+
+### Forgot Password?
+
+If a user has forgotten their password they can easily recover their account by clicking on "forgot password" On the homepage
+
+### Home Page
+
+The Home Page is where the bulk of the functionality happens. Here users can ask for or pass on items posted by other users. If a user pass or asks for an item, this interaction is captured and stored for later use as an insight. 
+
+We desgined the homepage to mimick the popular dating app Tinder. The user has only two options for every item, they can either pass or ask for the item. They must do this to see other items. The interactions are manifested in the form of buttons for the user to press. If a user asks for the item they are prompted by the app to send an email to the user who posted the item.
+
+### Profile Page
+
+On the profile page the user can view information about themselves in the form of insights. They can upload a photo (which is unfortunately not used anywhere else in the app), see their name, and also insights.
+
+NOTE: The insights came at a late stage in the apps development and as such there is only one, which tells the user how many people have skipped on their items, and how many have asked for their items.
+
+### Add Items
+
+The add items page allows users to add items to give away. On this page they are prompted to upload a photo for the item as well as give it a name and a description. These fields are not optional and are enforced by the app. All of this information is stored on the CSX server, except for the photo which is stored in AWS S3 buckets.
+
+### QR Code
+
+Every user has their own unique QR code, which indentifies their username and email address. When another user scans the bar code it signals
+a php file on the CSX server that contains the details about the scanned user.
+
+### My Items
+
+In this page the user can view all of the items they have posted. Clicking on an item on this page will display more detailed information about them.
+
+
 
 
 
