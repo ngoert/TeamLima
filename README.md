@@ -67,4 +67,34 @@ The homepage contains a UIImageview with two buttons ASK & PASS.
 PASS - The user can click on the PASS button if they dont like the current item and next item will get populated in the UI
 ASK - If user likes the item, they can press the ASK button and send email to owner.
 ```
+Profile & Insight
+```
+It contains a section where user can upload its user profile.
+Also,
+It contains a pie chart whihc shows Insights about user activities:
+Number of Pass -  Number of times a user has skipped a particular item.
+Number of Ask  - Number of times a user has sent email to different users.
+```
+Add Items
+```
+Add Items contains a UiImagePickerDelegate which helps user to select images from gallery. Once image is selected, user gives title, description and press
+upload button to push images to AWS S3 bucket. This image than automatically get broadcasted in every different user Homepage.
+```
+QR Code
+```
+Every user has its own unique Bar code, whihc tells its username and email ID. Once user scans the bar code, It gets landed to a PHP page hosted in the CSX
+server which tells details about the user.
+```
+My Items
+```
+This section contains all the images uploaded by that particular user.
+```
+Interaction with Maria DB hosted on CSX server
+```
+TODO
+
+```
+
+
+
 
