@@ -108,7 +108,8 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
         self.present(mail, animated: true, completion: nil)
         }
         else{
-            loadNextImage()
+            print("Internet not working/Email will not work in simulator")
+            //loadNextImage()
         }
         
     }
@@ -119,12 +120,18 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
           switch result {
              case .cancelled:
              print("Cancelled")
+            mail.dismiss(animated: true, completion: nil)
+
              break
              case .sent:
              print("Mail sent successfully")
+            mail.dismiss(animated: true, completion: nil)
+
              break
              case .failed:
              print("Sending mail failed")
+            mail.dismiss(animated: true, completion: nil)
+
              break
              default:
              break
@@ -290,6 +297,8 @@ class MenuListController: UITableViewController{
           
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let qrCodeViewController = storyBoard.instantiateViewController(withIdentifier: "qRCodeViewController") as! QRCodeViewController
+            qrCodeViewController.firstName = userInfo.firstName
+            qrCodeViewController.emailAddress = userInfo.emailAddress
             show(qrCodeViewController, sender: self)
         }
         if items[indexPath.row] == "My Items"{
