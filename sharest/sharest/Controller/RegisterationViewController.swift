@@ -32,11 +32,12 @@ class RegisterationViewController: UIViewController {
     }
     //Function to register user to database
     @IBAction func registerUserButton(_ sender: Any) {
-        navigationController?.navigationBar.isHidden = true
         
         Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
             if error != nil{
-                print(error!)
+                print(error?.localizedDescription)
+                var errorMessage = error?.localizedDescription
+                self.showErrorAlert(message: errorMessage!)
             }
             else{
                 print("User Registration Successful")
@@ -88,5 +89,13 @@ class RegisterationViewController: UIViewController {
         }
         
         task.resume()
+    }
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: { _ in
+            //Cancel Action
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
