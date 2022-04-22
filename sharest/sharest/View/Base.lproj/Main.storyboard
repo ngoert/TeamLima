@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a3J-Lo-co3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a3J-Lo-co3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -147,6 +147,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" textContentType="family-name"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2aj-h6-bxL">
+                                <rect key="frame" x="197" y="493" width="20" height="20"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E9j-Mz-kt0"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,15 +173,19 @@
                             <constraint firstItem="Zgs-TP-hbO" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="120" id="XUk-xo-E1p"/>
                             <constraint firstItem="ATC-3E-sfm" firstAttribute="leading" secondItem="pSO-tE-hFa" secondAttribute="leading" id="d8u-se-Y8K"/>
                             <constraint firstItem="RKW-xX-mBe" firstAttribute="top" secondItem="vc9-7S-On6" secondAttribute="bottom" constant="20" id="kSG-En-SZP"/>
+                            <constraint firstItem="2aj-h6-bxL" firstAttribute="centerX" secondItem="Zgs-TP-hbO" secondAttribute="centerX" id="l8P-bx-Un3"/>
                             <constraint firstItem="0Vf-lT-fPv" firstAttribute="trailing" secondItem="ATC-3E-sfm" secondAttribute="trailing" id="mSr-0d-OAd"/>
                             <constraint firstItem="pSO-tE-hFa" firstAttribute="leading" secondItem="E9j-Mz-kt0" secondAttribute="leading" constant="20" id="rbv-eW-7WR"/>
+                            <constraint firstItem="2aj-h6-bxL" firstAttribute="centerY" secondItem="Zgs-TP-hbO" secondAttribute="centerY" id="szX-Qx-TWD"/>
                             <constraint firstItem="E9j-Mz-kt0" firstAttribute="trailing" secondItem="Zgs-TP-hbO" secondAttribute="trailing" constant="120" id="wSP-oD-slp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="frV-Js-koI"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="2aj-h6-bxL" id="ced-ef-gB5"/>
                         <outlet property="firstNameLabel" destination="ATC-3E-sfm" id="guS-d1-UEB"/>
                         <outlet property="lastNameLabel" destination="0Vf-lT-fPv" id="1J1-Z5-26s"/>
+                        <outlet property="registerButton" destination="Zgs-TP-hbO" id="irH-nB-bzK"/>
                         <outlet property="userEmail" destination="RKW-xX-mBe" id="OgR-QX-xwr"/>
                         <outlet property="userPassword" destination="pSO-tE-hFa" id="dni-PF-ws1"/>
                         <segue destination="pRP-Gd-Afd" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToLoginWithSegueWithSegue:" id="eUf-ob-eBY"/>
@@ -186,7 +194,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZL-XE-oeb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pRP-Gd-Afd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="842"/>
+            <point key="canvasLocation" x="3005.7971014492755" y="841.74107142857144"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="Y0q-7p-NLy">

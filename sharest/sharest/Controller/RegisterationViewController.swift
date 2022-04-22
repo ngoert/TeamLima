@@ -15,6 +15,9 @@ class RegisterationViewController: UIViewController {
     @IBOutlet weak var firstNameLabel: UITextField!
     @IBOutlet weak var lastNameLabel: UITextField!
     
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,9 +35,14 @@ class RegisterationViewController: UIViewController {
     }
     //Function to register user to database
     @IBAction func registerUserButton(_ sender: Any) {
+        registerButton.setImage(UIImage(named: "button_blank-2.png"), for: .normal)
+        activityIndicator.startAnimating()
         
         Auth.auth().createUser(withEmail: userEmail.text!, password: userPassword.text!, completion: {(user, error) in
             if error != nil{
+                self.registerButton.setImage(UIImage(named: "button_register.png"), for: .normal)
+                self.activityIndicator.stopAnimating()
+                
                 print(error?.localizedDescription)
                 var errorMessage = error?.localizedDescription
                 self.showErrorAlert(message: errorMessage!)
