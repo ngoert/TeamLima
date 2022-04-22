@@ -20,6 +20,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var imageUploadProgressView: UIProgressView!
     
     @IBOutlet weak var addImageLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     var userInfo = User()
@@ -62,20 +63,31 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
        
     @IBAction func uploadButtonTap(_ sender: Any) {
+        uploadButton.setImage(UIImage(named: "button_blank_upload.png"), for: .normal)
+        activityIndicator.startAnimating()
         
         if !hasUploadedPhoto
         {
+            self.uploadButton.setImage(UIImage(named: "button_upload.png"), for: .normal)
+            self.activityIndicator.stopAnimating()
+            
             self.highlightMissingField()
             
         }
         else if itemNameLabel.text!.isEmpty
         {
+            self.uploadButton.setImage(UIImage(named: "button_upload.png"), for: .normal)
+            self.activityIndicator.stopAnimating()
+            
             let notUploadedAlert = UIAlertController(title: "Item has no name", message: "Please give your item a name.", preferredStyle: .alert)
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
             self.present(notUploadedAlert, animated: true)
         }
         else if descriptionTextView.textColor == UIColor.placeholderText
         {
+            self.uploadButton.setImage(UIImage(named: "button_upload.png"), for: .normal)
+            self.activityIndicator.stopAnimating()
+            
             let notUploadedAlert = UIAlertController(title: "Item has no description", message: "Please give your item a description.", preferredStyle: .alert)
             notUploadedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action"), style: .default, handler: {_ in }))
             self.present(notUploadedAlert, animated: true)

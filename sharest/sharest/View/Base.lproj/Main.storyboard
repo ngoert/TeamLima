@@ -531,11 +531,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.70965242701650455" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="xne-iY-eG3">
+                                <rect key="frame" x="197" y="755" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="y4p-gv-hGR"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="xne-iY-eG3" id="LSe-co-mQT"/>
                         <outlet property="addImageLabel" destination="KhQ-eX-NRt" id="v6W-YL-ymC"/>
                         <outlet property="descriptionTextView" destination="eyv-nS-I5v" id="wf1-xA-Yzm"/>
                         <outlet property="imageUploadProgressView" destination="oZc-4b-aSM" id="nsj-RT-Bwh"/>
