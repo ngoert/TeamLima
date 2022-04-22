@@ -18,7 +18,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var itemNameLabel: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var imageUploadProgressView: UIProgressView!
-
+    
+    @IBOutlet weak var addImageLabel: UILabel!
+    
     
     var userInfo = User()
     var hasUploadedPhoto = false
@@ -115,6 +117,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         hasUploadedPhoto = true;
         self.dismiss(animated: true, completion: nil)
+        addImageLabel.isHidden = true
     }
     
 
