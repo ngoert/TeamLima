@@ -60,6 +60,10 @@
                                     <action selector="forgetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccY-my-trM"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7Kz-lp-sum">
+                                <rect key="frame" x="192" y="408" width="20" height="20"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.4039215686" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,6 +75,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VFt-Kw-JtK" secondAttribute="trailing" constant="20" id="Ac5-kv-bu0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Bv-08-kAF" secondAttribute="trailing" constant="20" id="Akx-gn-AMQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMA-Hq-FXM" secondAttribute="trailing" constant="20" id="FFB-wL-rcg"/>
+                            <constraint firstItem="7Kz-lp-sum" firstAttribute="centerX" secondItem="gMx-Eq-331" secondAttribute="centerX" id="MSn-ju-BEX"/>
                             <constraint firstItem="3Bv-08-kAF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mrg-9r-2Pw"/>
                             <constraint firstItem="P2Q-Fa-QgX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="Nx2-CP-v9f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n3g-1m-Zd5" secondAttribute="trailing" constant="20" id="TCk-Cj-TSZ"/>
@@ -83,10 +88,13 @@
                             <constraint firstItem="VFt-Kw-JtK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lla-G3-fn8"/>
                             <constraint firstItem="gMx-Eq-331" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="nGH-dw-d6X"/>
                             <constraint firstItem="VFt-Kw-JtK" firstAttribute="top" secondItem="P2Q-Fa-QgX" secondAttribute="bottom" constant="8" id="xBq-Nb-jwM"/>
+                            <constraint firstItem="7Kz-lp-sum" firstAttribute="centerY" secondItem="gMx-Eq-331" secondAttribute="centerY" id="xc7-4I-OUI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7ME-Gz-57L"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="7Kz-lp-sum" id="YSb-5n-yAl"/>
+                        <outlet property="loginButton" destination="gMx-Eq-331" id="LN3-Qu-oSB"/>
                         <outlet property="loginUserText" destination="VFt-Kw-JtK" id="2Qd-Qr-7rN"/>
                         <outlet property="passwordUserText" destination="KMA-Hq-FXM" id="aoh-vZ-RDQ"/>
                         <segue destination="mOA-lL-bdz" kind="show" identifier="goToRegister" id="Pgp-Tt-585"/>

@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var passwordUserText: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var user : User!
     
     override func viewDidLoad() {
@@ -36,8 +39,14 @@ class ViewController: UIViewController {
     }
     //Function to sign in user to database
     @IBAction func loginButton(_ sender: Any) {
+        loginButton.setImage(UIImage(named: "button_blank-2.png"), for: .normal)
+        activityIndicator.startAnimating()
+        
         Auth.auth().signIn(withEmail: loginUserText.text!, password: passwordUserText.text!, completion: {(user, error) in
             if error != nil{
+                self.loginButton.setImage(UIImage(named: "button_login-2.png"), for: .normal)
+                self.activityIndicator.stopAnimating()
+                
                 print("Error while Login---------------")
                 print(error?.localizedDescription)
                 var errorMessage = error?.localizedDescription
