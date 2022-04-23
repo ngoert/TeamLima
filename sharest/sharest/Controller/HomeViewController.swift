@@ -87,6 +87,14 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Simulator do not support email functionality", message: "Please connect Iphone to send emails", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: { _ in
+            //Cancel Action
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBAction func sendEmailTapped(_ sender: UIButton) {
         //generate interaction data for an ask
         let interaction = Interaction()
@@ -108,7 +116,8 @@ class HomeViewController: UIViewController,MFMailComposeViewControllerDelegate {
         self.present(mail, animated: true, completion: nil)
         }
         else{
-            print("Internet not working/Email will not work in simulator")
+            showErrorAlert()
+            print("Email will not work in simulator")
             //loadNextImage()
         }
         
