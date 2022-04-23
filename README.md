@@ -8,7 +8,7 @@
 
 **This project has been developed with Swift 5, deployment target as IOS 15.0 and built using Xcode 13.1**
 
-## Please run the application only in the mobile phone. All the functionalities would not work on the Simulator.
+# Email functionality will not work on Simulator. 
 ## About
 
 Purpose: Give away items you no longer need to those in your community. Users can upload photos and descriptions of items they want to give away and other user can take them.
